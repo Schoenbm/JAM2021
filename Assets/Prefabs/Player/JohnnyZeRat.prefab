@@ -106,7 +106,7 @@ MonoBehaviour:
   fallMultiplier: 2.5
   lowJumpMultiplier: 5
   dashForce: 400
-  dashInvulnerabilityFrame: 0.5
+  dashInvulnerabilityFrame: 0.3
   dashParticlesPrefab: {fileID: 1937898751459860416, guid: 007142f2893530d4a9ce34426f1086de, type: 3}
 --- !u!50 &4202398283583751315
 Rigidbody2D:
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 0}

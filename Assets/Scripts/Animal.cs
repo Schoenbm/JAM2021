@@ -7,6 +7,7 @@ public abstract class Animal : MonoBehaviour
 	public int totalHealthPoints;
 	protected int currentHealthPoints;
 	protected bool invulnerable;
+	protected bool canMove;
 	public float invulnerabilityFrame;
 	
 	public void Awake(){
@@ -51,5 +52,12 @@ public abstract class Animal : MonoBehaviour
 		yield return new WaitForSeconds(t);
 		//this.gameObject.GetComponent<BoxCollider2D>().isActiveAndEnabled = true;
 		invulnerable = false;
+	}
+
+	protected IEnumerator CantMove(float t)
+    {
+		canMove = false;
+		yield return new WaitForSeconds(t);
+		canMove = true;
 	}
 }
