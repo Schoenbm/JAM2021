@@ -13,7 +13,6 @@ public class RuleManager : MonoBehaviour
     private float ruleDuration = 0.0f; // how long does the current rule last
     private float timer = 0.0f; // timer counting the rule has lasted
 
-	public GameManager gm;
 
     // Start is called before the first frame update
     void Start()
@@ -42,9 +41,7 @@ public class RuleManager : MonoBehaviour
             ruleDuration = Random.Range(minSeconds, maxSeconds); // set new duration
             activeRule = rules[Random.Range(0, rules.Count)]; // choose new active rule
 
-	        activeRule.applyRule(); // start rule
-            
-	        gm.ChangeUIText(activeRule.getName(), activeRule.getDescription());
+            activeRule.applyRule(); // start rule
         }
     }
    

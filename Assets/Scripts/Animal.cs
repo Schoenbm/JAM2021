@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Animal : MonoBehaviour
 {
-	protected GameManager gm;
+	protected gameManager gm;
 	public int totalHealthPoints;
 	protected int currentHealthPoints;
 	protected bool invulnerable;
@@ -33,7 +33,7 @@ public abstract class Animal : MonoBehaviour
 	
 	abstract public void Die();
 	
-	public void setGm(GameManager pGm){gm = pGm	;}
+	public void setGm(gameManager pGm){gm = pGm	;}
 	
 	
 	IEnumerator Hit(){

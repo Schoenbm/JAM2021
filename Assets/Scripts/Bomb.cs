@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-	float pressure = 0.0f; // how much has built up
+	int pressure = 0; // how much has built up
 	int pressureLevel = 0; // the threshold we are in (0 to 3, 3 is game over)
 	
 	// We will tweak these later on
@@ -14,14 +14,11 @@ public class Bomb : MonoBehaviour
 	
 	BoxCollider2D boxCollider;
 	
-	GameManager gm;
-	
 	
     // Start is called before the first frame update
     void Start()
     {
 	    boxCollider = GetComponent<BoxCollider2D>();
-	    gm = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -46,7 +43,7 @@ public class Bomb : MonoBehaviour
 	    	}
 	    }
 	    else {
-	    	gm.GameOver();
+	    	// TODO: Call GameManager.GameOver()
 	    }
     }
     
@@ -54,11 +51,10 @@ public class Bomb : MonoBehaviour
 	{
 		if(col.tag == "Enemy") {
 			++pressure;
-			col.gameObject.GetComponent<Enemy>().Fall();
 		}
 	}
 	
 	public void reducePressure() {
-		pressure -= 0.5f;
+		--pressure;
 	}
 }

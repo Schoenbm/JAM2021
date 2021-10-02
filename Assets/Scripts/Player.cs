@@ -141,6 +141,6 @@ public class Player : Animal
     
 	override
 	public void Die(){
-		gm.GameOver();
+		
 	}
 }
