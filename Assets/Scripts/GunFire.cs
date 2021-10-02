@@ -10,6 +10,7 @@ public class GunFire : MonoBehaviour
 	public float recoil = 0.5f;
 	public Rigidbody2D rbplayer;
 	private bool canShoot = true;
+	public Camera camera;
     
 
 	void Start(){
@@ -23,12 +24,11 @@ public class GunFire : MonoBehaviour
         canShoot = true;
     }
 
-    // Update is called once per frame
 	void FixedUpdate()
 	{
-		Vector3 mousePos = Input.mousePosition;
-		Vector2 direction = mousePos - transform.position;
-		Debug.Log(direction);
+		Vector3 mousePos3 = Input.mousePosition;
+		Vector2 mousePos = camera.ScreenToWorldPoint(mousePos3);
+		Vector2 direction = (mousePos - (Vector2)transform.position).normalized;
 		
 		float angle = Vector2.SignedAngle(Vector2.right, direction);
 		transform.eulerAngles = new Vector3 (0, 0, angle);
