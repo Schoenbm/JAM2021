@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,20 +8,28 @@ public class PlayerMove : MonoBehaviour
     public float jumpForce = 5.0f;
 
     Rigidbody2D rb;
-    BoxCollider2D boxCollider;
+	BoxCollider2D boxCollider;
+	ParticleSystem particles;
     int maxJumps = 1;
     int jumpsLeft = 1;
     bool isJumpPressed;
 
     float coolDownMax = 0.1f;
-    float coolDown = 0.0f;
-
+	float coolDown = 0.0f;
+    
+	float coolDownDashMax = 1f;
+	float coolDownDash = 0.0f;
+	float dashDistance = 2f;
+	public GameObject dashParticles;
+	GameObject dashParticlesInstance;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
+	    boxCollider = GetComponent<BoxCollider2D>();
+	    particles = transform.GetComponent<ParticleSystem>();
+	    dashParticlesInstance = Instantiate(dashParticles, new	Vector3(0,0,0),Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -54,11 +62,28 @@ public class PlayerMove : MonoBehaviour
             horizontalSpeed *= 0.5f; // you have less movility when in the air
         }
 
-        coolDown += Time.deltaTime;
+	    coolDown += Time.deltaTime;
+	    coolDownDash += Time.deltaTime;
 
         float movement = Input.GetAxis("Horizontal") * horizontalSpeed * Time.deltaTime;
 
-        transform.position = new Vector3(transform.position.x + movement, transform.position.y, 0);
+	    transform.position = new Vector3(transform.position.x + movement, transform.position.y, 0);
+        
+	    if(Input.GetKeyDown(KeyCode.LeftShift) && coolDownDash>coolDownDashMax){
+	    	if(Input.GetAxis("Horizontal") > 0){
+	    		coolDownDash = 0f;
+	    		dashParticlesInstance.transform.position = transform.position;
+	    		dashParticlesInstance.GetComponent<ParticleSystem>().Play();
+	    		transform.Translate(dashDistance,0,0);
+			
+	    	}else if(Input.GetAxis("Horizontal") < 0){
+	    		coolDownDash = 0f;
+	    		dashParticlesInstance.transform.position = transform.position;
+	    		dashParticlesInstance.GetComponent<ParticleSystem>().Play();
+	    		transform.Translate(-dashDistance,0,0);
+	    	}
+	    	
+	    }
     }
 
     // Checks if standing on a platform (use "Level" layer on every jumpable gameobject)
