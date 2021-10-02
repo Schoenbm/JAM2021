@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class GunFire : MonoBehaviour
     IEnumerator Shoot() 
     {
         canShoot = false;
-        Instantiate(bulletObj, this.transform.position, new Quaternion());
+	    Instantiate(bulletObj, this.transform.position, this.transform.rotation);
         yield return new WaitForSeconds(rateOfFire);
         canShoot = true;
     }

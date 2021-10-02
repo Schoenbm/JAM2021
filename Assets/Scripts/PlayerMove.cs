@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     public float speed = 5.0f;
-    bool isFacingRight = true; // depends on sprite
+	public bool isFacingRight = true; // depends on sprite
 
     public float jumpForce = 5.0f;
     int maxJumps = 1;
@@ -78,8 +78,9 @@ public class PlayerMove : MonoBehaviour
         // flip
         if ((isFacingRight && Input.GetAxis("Horizontal") < 0) || (!isFacingRight && Input.GetAxis("Horizontal") > 0))
         {
-            isFacingRight = !isFacingRight;
-            spriteRenderer.flipX = !spriteRenderer.flipX;
+	        isFacingRight = !isFacingRight;
+	        //spriteRenderer.flipX = !spriteRenderer.flipX;
+	        transform.Rotate(0f, 180f, 0f);
         }
 
         // Dash
