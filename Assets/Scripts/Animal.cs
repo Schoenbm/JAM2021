@@ -15,7 +15,7 @@ public abstract class Animal : MonoBehaviour
 	public void TakeDamages(int p){
 		if(invulnerable)
 			return;
-		currentHealthPoints --; 
+		currentHealthPoints -= p; 
 		Debug.Log("healthpoints =" + currentHealthPoints + " entity is:" + this.tag);
 		if(currentHealthPoints <= 0)
 			this.Die();
@@ -24,7 +24,7 @@ public abstract class Animal : MonoBehaviour
 	
 	public void heal(int p){
 		if(currentHealthPoints< totalHealthPoints)
-			currentHealthPoints ++;
+			currentHealthPoints += p;
 	}
 	
 	abstract public void Die();

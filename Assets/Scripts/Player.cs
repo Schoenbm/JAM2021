@@ -106,8 +106,14 @@ public class Player : Animal
         	coolDownDash = 0f;
             dashParticlesInstance.transform.position = transform.position;
             dashParticlesInstance.GetComponent<ParticleSystem>().Play();
-	        this.rb.AddForce(dashForce * transform.right);
+
 	        this.StartCoroutine(Invulnerable(dashInvulnerabilityFrame));
+	        if(isFacingRight)
+		        this.rb.AddForce(dashForce * transform.right);
+	        else
+		        this.rb.AddForce(-dashForce * transform.right);
+	        	
+	        	
 
         }
     }
@@ -115,7 +121,7 @@ public class Player : Animal
     // Checks if standing on a platform (use "Platform" layer on every jumpable gameobject)
     bool isGrounded()
     {
-        float rayOffset = 0.05f;
+	    float rayOffset = 0.25f;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, boxCollider.bounds.extents.y + rayOffset, LayerMask.GetMask("Platform"));
         return hit.collider != null;
     }
