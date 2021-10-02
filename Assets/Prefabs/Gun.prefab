@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f1ef551eee72e954094065eaeaabed21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0a0b8ea00625034a9ee242b152c3980, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,3 +128,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletObj: {fileID: 8753381081475812394, guid: ec54c68dc810e82448a6aa77316d5184, type: 3}
   rateOfFire: 0.5
+  recoil: 0.5
+  rbplayer: {fileID: 0}

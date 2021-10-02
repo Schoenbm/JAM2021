@@ -1308,6 +1308,14 @@ PrefabInstance:
       propertyPath: recoil
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 4202398283583751316, guid: 0ef4807996d257845900c35757b52936, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202398283583751316, guid: 0ef4807996d257845900c35757b52936, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4202398283583751317, guid: 0ef4807996d257845900c35757b52936, type: 3}
       propertyPath: m_RootOrder
       value: 2
