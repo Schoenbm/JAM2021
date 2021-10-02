@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
-	public gameManager gm;
+	public GameManager gm;
     public GameObject enemyObj;
     public int spawnsRemaining = 10;
     public float timeBetweenSpawns = 2.5f;
     private bool canSpawn = true;
-    IEnumerator spawnEnemy() 
+    
+	IEnumerator spawnEnemy() 
     {
         GameObject enemy;
 
@@ -23,7 +24,7 @@ public class SpawnEnemies : MonoBehaviour
     }
 
 	void Start(){
-		gm = FindObjectOfType<gameManager>();
+		gm = FindObjectOfType<GameManager>();
 	}
     // Update is called once per frame
     void Update()
