@@ -12,7 +12,6 @@ public class Enemy : Animal
 	
 	public GameObject DropPrefab;
 
-
     private void OnCollisionEnter2D(Collision2D collision) 
     {
     	if (collision.transform.tag == "Player"){
@@ -31,7 +30,6 @@ public class Enemy : Animal
 		Instantiate(DropPrefab, this.gameObject.transform.position, this.transform.rotation);
 		spawner.spawnedEnemyDied();
 		Destroy(this.gameObject);
-
 	}
 
 }

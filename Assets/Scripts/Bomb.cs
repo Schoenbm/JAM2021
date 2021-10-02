@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-	int pressure = 0; // how much has built up
+	float pressure = 0.0f; // how much has built up
 	int pressureLevel = 0; // the threshold we are in (0 to 3, 3 is game over)
 	
 	// We will tweak these later on
@@ -51,10 +51,11 @@ public class Bomb : MonoBehaviour
 	{
 		if(col.tag == "Enemy") {
 			++pressure;
+			col.gameObject.GetComponent<Enemy>().Die();
 		}
 	}
 	
 	public void reducePressure() {
-		--pressure;
+		pressure -= 0.5f;
 	}
 }
