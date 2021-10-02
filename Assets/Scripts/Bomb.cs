@@ -14,11 +14,14 @@ public class Bomb : MonoBehaviour
 	
 	BoxCollider2D boxCollider;
 	
+	GameManager gm;
+	
 	
     // Start is called before the first frame update
     void Start()
     {
 	    boxCollider = GetComponent<BoxCollider2D>();
+	    gm = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -43,7 +46,7 @@ public class Bomb : MonoBehaviour
 	    	}
 	    }
 	    else {
-	    	// TODO: Call GameManager.GameOver()
+	    	gm.GameOver();
 	    }
     }
     
@@ -51,7 +54,7 @@ public class Bomb : MonoBehaviour
 	{
 		if(col.tag == "Enemy") {
 			++pressure;
-			col.gameObject.GetComponent<Enemy>().Die();
+			col.gameObject.GetComponent<Enemy>().Fall();
 		}
 	}
 	

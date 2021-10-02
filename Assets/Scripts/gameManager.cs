@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 	int score;
 	int combo;
@@ -14,6 +14,8 @@ public class gameManager : MonoBehaviour
 	public GameObject playerPrefab;
 	public GameObject spawnPoint;
 	
+	public Bomb bomb;
+	
     void Start()
     {
 	    player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
@@ -21,10 +23,11 @@ public class gameManager : MonoBehaviour
 	    combo = 0;
     }
 	
-	void enemyKilled(){
+	public void enemyKilled(){
 		killingSpree += 1;
 		combo = (int)Mathf.Sqrt(killingSpree);
 		score += combo;
+		bomb.reducePressure();
 	}
 	
 	public void addExtraLife(){
@@ -36,4 +39,14 @@ public class gameManager : MonoBehaviour
     {
 	    currentLife = player.getCurrentHealth();
     }
+	
+	public void ChangeUIText(string ruleName, string ruleDescription) {
+		
+	}
+    
+	public void GameOver() {
+		Debug.Log("Game Over");
+		
+		// TODO: show animation, gamover screen, return to menu, etc.
+	}
 }
