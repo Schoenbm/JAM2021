@@ -94,8 +94,8 @@ public class Player : Animal
         if ((isFacingRight && Input.GetAxis("Horizontal") < 0) || (!isFacingRight && Input.GetAxis("Horizontal") > 0))
         {
 	        isFacingRight = !isFacingRight;
-	        //spriteRenderer.flipX = !spriteRenderer.flipX;
-	        transform.Rotate(0f, 180f, 0f);
+	        spriteRenderer.flipX = !spriteRenderer.flipX;
+	        //transform.Rotate(0f, 180f, 0f);
         }
 
         // Dash
