@@ -147,5 +147,6 @@ MonoBehaviour:
   totalHealthPoints: 3
   invulnerabilityFrame: 0.5
   strengh: 1
+  knockback: 300
   spawner: {fileID: 0}
   travelSpeed: 2
