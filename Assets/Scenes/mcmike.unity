@@ -1320,6 +1320,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1869117065
       objectReference: {fileID: 0}
+    - target: {fileID: 4202398283583751314, guid: 0ef4807996d257845900c35757b52936, type: 3}
+      propertyPath: dashForce
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 4202398283583751317, guid: 0ef4807996d257845900c35757b52936, type: 3}
       propertyPath: m_RootOrder
       value: 2
