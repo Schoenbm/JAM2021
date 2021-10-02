@@ -30,6 +30,7 @@ public class Enemy : Animal
 	public void Die(){
 		Instantiate(DropPrefab, this.gameObject.transform.position, this.transform.rotation);
 		spawner.spawnedEnemyDied();
+		gm.enemyKilled();
 		Destroy(this.gameObject);
 
 	}
