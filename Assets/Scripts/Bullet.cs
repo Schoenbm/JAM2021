@@ -19,13 +19,7 @@ public class Bullet : MonoBehaviour
 	//    this.transform.Translate(new Vector3(bulletTravelSpeed * Time.deltaTime,0));
 	//}
 	
-<<<<<<< Updated upstream
-	private void OnTriggerEnter2D(Collider2D collider) 
-    {
-        print("Collision with: " + collider.transform.name);
-	    if (!collider.transform.CompareTag("Player") && !collider.transform.CompareTag("Bullet"))
-            Destroy(this.gameObject);
-=======
+
 	private void OnTriggerEnter2D(Collider2D collision) 
     {
 	    print("Collision with: " + collision.transform.name);
@@ -35,8 +29,6 @@ public class Bullet : MonoBehaviour
 		    	target.takeDamages(damage);
 		    Destroy(this.gameObject);
 	    }
-
->>>>>>> Stashed changes
     }
 
 }

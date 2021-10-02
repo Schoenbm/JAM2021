@@ -115,7 +115,7 @@ public class Player : Animal
                 coolDownDash = 0f;
                 dashParticlesInstance.transform.position = transform.position;
                 dashParticlesInstance.GetComponent<ParticleSystem>().Play();
-                transform.Translate(-dashDistance, 0, 0);
+                transform.Translate(dashDistance, 0, 0);
             }
 
         }
