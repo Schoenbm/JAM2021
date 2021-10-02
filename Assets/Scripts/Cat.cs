@@ -20,7 +20,7 @@ public class Cat : Enemy
 			direction *= -1;
 			break;
 		case "Player":
-			collision.gameObject.GetComponent<Player>().takeDamages(strengh);
+			collision.gameObject.GetComponent<Player>().TakeDamages(strengh);
 			break;
 		case "Wall":
 			direction *= -1;

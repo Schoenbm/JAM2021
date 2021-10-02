@@ -23,7 +23,8 @@ public class Player : Animal
 
     float coolDownDashMax = 1f;
     float coolDownDash = 0.0f;
-    float dashDistance = 2f;
+	public float dashForce = 2f;
+	public float dashInvulnerabilityFrame = 0.5f;
 
     public GameObject dashParticlesPrefab;
     GameObject dashParticlesInstance;
@@ -102,21 +103,11 @@ public class Player : Animal
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && coolDownDash > coolDownDashMax)
         {
-            if (Input.GetAxis("Horizontal") > 0)
-            {
-                coolDownDash = 0f;
-                dashParticlesInstance.transform.position = transform.position;
-                dashParticlesInstance.GetComponent<ParticleSystem>().Play();
-                transform.Translate(dashDistance, 0, 0);
-
-            }
-            else if (Input.GetAxis("Horizontal") < 0)
-            {
-                coolDownDash = 0f;
-                dashParticlesInstance.transform.position = transform.position;
-                dashParticlesInstance.GetComponent<ParticleSystem>().Play();
-                transform.Translate(dashDistance, 0, 0);
-            }
+        	coolDownDash = 0f;
+            dashParticlesInstance.transform.position = transform.position;
+            dashParticlesInstance.GetComponent<ParticleSystem>().Play();
+	        this.rb.AddForce(dashForce * transform.right);
+	        this.StartCoroutine(Invulnerable(dashInvulnerabilityFrame));
 
         }
     }

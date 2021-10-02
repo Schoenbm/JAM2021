@@ -13,7 +13,7 @@ public class Enemy : Animal
     private void OnCollisionEnter2D(Collision2D collision) 
     {
     	if (collision.transform.tag == "Player"){
-    		collision.gameObject.GetComponent<Player>().takeDamages(strengh);
+    		collision.gameObject.GetComponent<Player>().TakeDamages(strengh);
     	}
     }
 	

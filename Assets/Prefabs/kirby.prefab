@@ -99,9 +99,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalHealthPoints: 10
+  invulnerabilityFrame: 1.5
   speed: 5
   isFacingRight: 1
   jumpForce: 15
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 5
   dashParticlesPrefab: {fileID: 1937898751459860416, guid: 007142f2893530d4a9ce34426f1086de, type: 3}
 --- !u!50 &4202398283583751315
 Rigidbody2D:
@@ -217,6 +220,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1239943137819773961, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
+      propertyPath: recoil
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239943137819773961, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
+      propertyPath: rbplayer
+      value: 
+      objectReference: {fileID: 4202398283583751315}
     - target: {fileID: 1239943137819773962, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
       propertyPath: m_Name
       value: Gun

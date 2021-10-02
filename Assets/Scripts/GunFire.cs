@@ -7,9 +7,13 @@ public class GunFire : MonoBehaviour
 
     public GameObject bulletObj;
     public float rateOfFire = 0.5f;
-    
+	public float recoil = 0.5f;
+	public Rigidbody2D rbplayer;
     private bool canShoot = true;
 
+	void Start(){
+		this.gameObject.GetComponentInParent<Rigidbody2D>();
+	}
     IEnumerator Shoot() 
     {
         canShoot = false;
@@ -23,7 +27,8 @@ public class GunFire : MonoBehaviour
     {
         if (Input.GetButton("Fire1") && canShoot) 
         {
-            StartCoroutine(Shoot());
+	        StartCoroutine(Shoot());
+	        rbplayer.AddForce(-transform.right * recoil);
         }
     }
 

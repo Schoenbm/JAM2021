@@ -6,15 +6,20 @@ public abstract class Animal : MonoBehaviour
 {
 	public int totalHealthPoints;
 	protected int currentHealthPoints;
+	protected bool invulnerable;
+	public float invulnerabilityFrame;
 	
 	public void Awake(){
 		currentHealthPoints = totalHealthPoints;
 	}
-	public void takeDamages(int p){
+	public void TakeDamages(int p){
+		if(invulnerable)
+			return;
 		currentHealthPoints --; 
 		Debug.Log("healthpoints =" + currentHealthPoints + " entity is:" + this.tag);
 		if(currentHealthPoints <= 0)
 			this.Die();
+		else StartCoroutine(Hit());
 	}
 	
 	public void heal(int p){
@@ -24,5 +29,25 @@ public abstract class Animal : MonoBehaviour
 	
 	abstract public void Die();
 	
+	IEnumerator Hit(){
+		invulnerable = true;
+		SpriteRenderer sp = this.gameObject.GetComponent<SpriteRenderer>();
+		sp.color = new Color(1, 0.6f, 0.6f);
+		yield return new WaitForSeconds(invulnerabilityFrame);
+		invulnerable = false;
+		sp.color = new Color(1, 1 , 1);
+	}
 	
+	protected IEnumerator Invulnerable(float t){
+		invulnerable = true;
+		yield return new WaitForSeconds(t);
+		invulnerable = false;
+	}
+	
+	protected IEnumerator NoCollider(float t){
+		//this.gameObject.GetComponent<BoxCollider2D>()
+		yield return new WaitForSeconds(t);
+		//this.gameObject.GetComponent<BoxCollider2D>().isActiveAndEnabled = true;
+		invulnerable = false;
+	}
 }

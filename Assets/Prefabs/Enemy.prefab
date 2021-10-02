@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalHealthPoints: 3
+  invulnerabilityFrame: 0.5
   strengh: 1
   spawner: {fileID: 0}
   travelSpeed: 2
