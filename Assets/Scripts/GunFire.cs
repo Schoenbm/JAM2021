@@ -11,7 +11,7 @@ public class GunFire : MonoBehaviour
 	public float recoil = 0.5f;
 	public Rigidbody2D rbplayer;
 	private bool canShoot = true;
-	public Camera camera;
+	public Camera gameCamera;
 	private bool faceRight = true;
 
 	void Start(){
@@ -29,7 +29,7 @@ public class GunFire : MonoBehaviour
 	void FixedUpdate()
 	{
 		Vector3 mousePos3 = Input.mousePosition;
-		Vector2 mousePos = camera.ScreenToWorldPoint(mousePos3);
+		Vector2 mousePos = gameCamera.ScreenToWorldPoint(mousePos3);
 		Vector2 direction = (mousePos - (Vector2)transform.position).normalized;
 		
 		//flip

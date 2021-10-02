@@ -510,6 +510,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1239943137819773961, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
+      propertyPath: rbplayer
+      value: 
+      objectReference: {fileID: 1341209173}
+    - target: {fileID: 1239943137819773961, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 164299204}
     - target: {fileID: 1239943137819773962, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
       propertyPath: m_Name
       value: Gun
@@ -1123,8 +1131,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b53c953ffd819c40a721bc4481b55a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalHealthPoints: 0
+  invulnerabilityFrame: 0
+  smoothing: 0.05
   speed: 5
+  isFacingRight: 1
   jumpForce: 15
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 5
+  dashForce: 2
+  dashInvulnerabilityFrame: 0.5
   dashParticlesPrefab: {fileID: 1937898751459860416, guid: 007142f2893530d4a9ce34426f1086de, type: 3}
 --- !u!50 &1341209173
 Rigidbody2D:
