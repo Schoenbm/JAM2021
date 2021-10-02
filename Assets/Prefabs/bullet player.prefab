@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  knockback: 300
   bulletTravelSpeed: 6
 --- !u!50 &1569316923943622217
 Rigidbody2D:

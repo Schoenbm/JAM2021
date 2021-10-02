@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 	public int damage;
+	public float knockback;
 	public float bulletTravelSpeed = 20f;
 	private Rigidbody2D rb;
 
@@ -26,7 +27,7 @@ public class Bullet : MonoBehaviour
 	    if(!collision.transform.CompareTag(this.gameObject.tag)){
 		    Animal target = collision.GetComponent<Animal>();
 		    if(target)
-		    	target.TakeDamages(damage);
+		    	target.GetHit(damage, this.transform.position, knockback);
 		    Destroy(this.gameObject);
 	    }
     }

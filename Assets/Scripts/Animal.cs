@@ -12,10 +12,12 @@ public abstract class Animal : MonoBehaviour
 	public void Awake(){
 		currentHealthPoints = totalHealthPoints;
 	}
-	public void TakeDamages(int p){
+	public void GetHit(int pStr, Vector3 pCoordObjHit, float pKnockback){
 		if(invulnerable)
 			return;
-		currentHealthPoints -= p; 
+		currentHealthPoints -= pStr;
+		Rigidbody2D rb = GetComponent<Rigidbody2D>();
+		rb.AddForce((this.transform.position - pCoordObjHit).normalized * pKnockback);
 		Debug.Log("healthpoints =" + currentHealthPoints + " entity is:" + this.tag);
 		if(currentHealthPoints <= 0)
 			this.Die();
