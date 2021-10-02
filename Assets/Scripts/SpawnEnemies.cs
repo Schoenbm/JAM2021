@@ -8,7 +8,6 @@ public class SpawnEnemies : MonoBehaviour
     public GameObject enemyObj;
     public int spawnsRemaining = 10;
     public float timeBetweenSpawns = 2.5f;
-
     private bool canSpawn = true;
     IEnumerator spawnEnemy() 
     {

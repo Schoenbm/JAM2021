@@ -16,14 +16,9 @@ public class Cat : Enemy
 	{
 		switch (collision.transform.tag) 
 		{
-		case "Enemy":
-			direction *= -1;
-			break;
-		case "Player":
-			collision.gameObject.GetComponent<Player>().GetHit(strengh, this.transform.position, knockback);
-			break;
 		case "Wall":
 			direction *= -1;
+			this.gameObject.GetComponent<SpriteRenderer>().flipX = !this.gameObject.GetComponent<SpriteRenderer>().flipX;
 			break;
             
 		}
