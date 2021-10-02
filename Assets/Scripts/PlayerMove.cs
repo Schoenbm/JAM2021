@@ -9,6 +9,8 @@ public class PlayerMove : MonoBehaviour
 
     Rigidbody2D rb;
     BoxCollider2D boxCollider;
+    SpriteRenderer spriteRenderer;
+
     int maxJumps = 1;
     int jumpsLeft = 1;
     bool isJumpPressed;
@@ -16,19 +18,24 @@ public class PlayerMove : MonoBehaviour
     float coolDownMax = 0.1f;
     float coolDown = 0.0f;
 
+    bool isFacingRight = true; // depends on sprite
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         float horizontalSpeed = speed;
+        coolDown += Time.deltaTime;
 
+        // Jump
         if (jumpsLeft > 0 && Input.GetAxisRaw("Jump") > 0 && !isJumpPressed)
         {
             coolDown = 0.0f;
@@ -39,10 +46,12 @@ public class PlayerMove : MonoBehaviour
             isJumpPressed = true;
         }
 
+        // Reset can jump
         if(Input.GetAxisRaw("Jump") == 0) {
             isJumpPressed = false;
         }
 
+        // if grounded and cooldown done 
         if (isGrounded())
         {
             if(coolDown >= coolDownMax) {
@@ -54,11 +63,15 @@ public class PlayerMove : MonoBehaviour
             horizontalSpeed *= 0.5f; // you have less movility when in the air
         }
 
-        coolDown += Time.deltaTime;
-
+        // Horizontal movement
         float movement = Input.GetAxis("Horizontal") * horizontalSpeed * Time.deltaTime;
-
         transform.position = new Vector3(transform.position.x + movement, transform.position.y, 0);
+
+        // flip
+        if((isFacingRight && Input.GetAxis("Horizontal") < 0) || (!isFacingRight && Input.GetAxis("Horizontal") > 0)) {
+            isFacingRight = !isFacingRight;
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+        }
     }
 
     // Checks if standing on a platform (use "Level" layer on every jumpable gameobject)
