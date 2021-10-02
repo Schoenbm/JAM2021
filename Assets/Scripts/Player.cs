@@ -32,6 +32,7 @@ public class Player : Animal
     // Start is called before the first frame update
     void Start()
     {
+        canMove = true;
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -87,8 +88,11 @@ public class Player : Animal
 	    
         
         // Horizontal movement
-        float movement = Input.GetAxis("Horizontal") * horizontalSpeed * Time.deltaTime;
-        transform.position = new Vector3(transform.position.x + movement, transform.position.y, 0);
+	    float movement = Input.GetAxis("Horizontal") * horizontalSpeed * Time.deltaTime;
+        if (canMove)
+            transform.position = new Vector3(transform.position.x + movement, transform.position.y, 0);
+
+
 
         // flip
         if ((isFacingRight && Input.GetAxis("Horizontal") < 0) || (!isFacingRight && Input.GetAxis("Horizontal") > 0))
@@ -106,7 +110,7 @@ public class Player : Animal
         	coolDownDash = 0f;
             dashParticlesInstance.transform.position = transform.position;
             dashParticlesInstance.GetComponent<ParticleSystem>().Play();
-
+            this.StartCoroutine(CantMove(dashInvulnerabilityFrame));
 	        this.StartCoroutine(Invulnerable(dashInvulnerabilityFrame));
 	        if(isFacingRight)
 		        this.rb.AddForce(dashForce * transform.right);
