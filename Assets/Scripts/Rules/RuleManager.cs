@@ -13,7 +13,6 @@ public class RuleManager : MonoBehaviour
     private float ruleDuration = 0.0f; // how long does the current rule last
     private float timer = 0.0f; // timer counting the rule has lasted
 
-
     // Start is called before the first frame update
     void Start()
     {

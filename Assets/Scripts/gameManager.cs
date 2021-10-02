@@ -17,7 +17,7 @@ public class gameManager : MonoBehaviour
 	public GameObject playerPrefab;
 	public GameObject spawnPoint;
 
-	private Image chaosBarMask;
+	private Image chaosBarFill;
 	public Image chaosBar;
 	public float chaosFillSpeed = 0.01f;
 	public Bomb bomb;
@@ -29,8 +29,7 @@ public class gameManager : MonoBehaviour
 	void Start()
 	{
 		player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
-		chaosBarMask = chaosBar.transform.GetChild(0).GetComponent<Image>();
-		print(chaosBarMask.transform.name);
+		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		score = 0;
 		combo = 0;
 		chaos = 0.0f;
@@ -55,8 +54,9 @@ public class gameManager : MonoBehaviour
 	void Update()
 	{
 		currentLife = player.getCurrentHealth();
-		if (chaosBarMask.fillAmount < 1)
-			chaosBarMask.fillAmount += chaosFillSpeed * Time.deltaTime;
+		
+		if (chaosBarFill.fillAmount < 1)
+			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime;
 		
 		Score.text = "score: "+score;
 		if (combo >= 2)
