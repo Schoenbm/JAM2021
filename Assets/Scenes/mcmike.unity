@@ -1206,6 +1206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JohnnyZeRat
       objectReference: {fileID: 0}
+    - target: {fileID: 4202398283583751319, guid: 0ef4807996d257845900c35757b52936, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef4807996d257845900c35757b52936, type: 3}
 --- !u!1 &1826144459
