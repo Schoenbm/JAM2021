@@ -11,12 +11,14 @@ public class PlayerMove : MonoBehaviour
     public float speed = 5.0f;
 	public bool isFacingRight = true; // depends on sprite
 
-    public float jumpForce = 5.0f;
+	public float jumpForce = 0.5f;
+	public float fallMultiplier = 2.5f;
+	public float lowJumpMultiplier = 5f;
     int maxJumps = 1;
     int jumpsLeft = 1;
     bool isJumpPressed;
 
-    float jumpCoolDownMax = 0.1f;
+	float jumpCoolDownMax = 0.35f;
     float jumpCoolDown = 0.0f;
 
     float coolDownDashMax = 1f;
@@ -41,9 +43,10 @@ public class PlayerMove : MonoBehaviour
         float horizontalSpeed = speed;
         jumpCoolDown += Time.deltaTime;
 
-        // Jump
-        if (jumpsLeft > 0 && Input.GetAxisRaw("Jump") > 0 && !isJumpPressed)
-        {
+	    // Jump
+	    
+	    if (jumpsLeft > 0 && Input.GetAxisRaw("Jump") > 0 && !isJumpPressed)
+	    {
             jumpCoolDown = 0.0f;
             rb.velocity = new Vector2(rb.velocity.x, 0); // avoids force building up and avoids jumps being damped
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -68,9 +71,20 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            horizontalSpeed *= 0.5f; // you have less movility when in the air
+	        horizontalSpeed *= 0.9f; // you have less movility when in the air
         }
-
+	    
+	    // increase fall speed
+	    if(rb.velocity.y < 0)
+	    {
+	    	rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier -1) * Time.deltaTime;
+	    }
+	    else if(rb.velocity.y > 0 && !Input.GetButton("Jump"))
+	    {
+	    	rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier -1) * Time.deltaTime;
+	    }
+	    
+        
         // Horizontal movement
         float movement = Input.GetAxis("Horizontal") * horizontalSpeed * Time.deltaTime;
         transform.position = new Vector3(transform.position.x + movement, transform.position.y, 0);

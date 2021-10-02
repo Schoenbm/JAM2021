@@ -19,10 +19,10 @@ public class Bullet : MonoBehaviour
 	//    this.transform.Translate(new Vector3(bulletTravelSpeed * Time.deltaTime,0));
 	//}
 	
-	private void OnTriggerEnter2D(Collision2D collision) 
+	private void OnTriggerEnter2D(Collider2D collider) 
     {
-        print("Collision with: " + collision.transform.name);
-        if (!collision.transform.CompareTag("Player"))
+        print("Collision with: " + collider.transform.name);
+	    if (!collider.transform.CompareTag("Player") && !collider.transform.CompareTag("Bullet"))
             Destroy(this.gameObject);
     }
 

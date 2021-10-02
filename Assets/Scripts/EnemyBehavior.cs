@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,9 +19,11 @@ public class EnemyBehavior : MonoBehaviour
         switch (collision.transform.tag) 
         {
             case "Bullet":
-                hitPoints -= 1;
+	            hitPoints -= 1;
+	            Debug.Log("You hit an ennemy !");
                 if (hitPoints <= 0)
-                    Destroy(this.gameObject);
+	                Destroy(this.gameObject);
+                    
                 break;
 
             case "Enemy": //TODO

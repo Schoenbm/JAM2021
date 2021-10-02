@@ -518,6 +518,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1239943137819773961, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
+      propertyPath: rateOfFire
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1239943137819773962, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
       propertyPath: m_Name
       value: Gun
@@ -1248,6 +1252,8 @@ MonoBehaviour:
   speed: 5
   isFacingRight: 1
   jumpForce: 15
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 5
   dashParticlesPrefab: {fileID: 1937898751459860416, guid: 007142f2893530d4a9ce34426f1086de, type: 3}
 --- !u!212 &2022925380
 SpriteRenderer:
