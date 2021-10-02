@@ -100,7 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealthPoints: 10
   invulnerabilityFrame: 1.5
-  speed: 5
+  smoothing: 0.05
+  speed: 10
   isFacingRight: 1
   jumpForce: 15
   fallMultiplier: 2.5

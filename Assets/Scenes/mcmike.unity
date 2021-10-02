@@ -280,7 +280,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 155522361}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 02ba4d2d9af009243a04ca3655b7711b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -682,7 +682,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 690829259}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 02ba4d2d9af009243a04ca3655b7711b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -824,7 +824,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 874212043}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 02ba4d2d9af009243a04ca3655b7711b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -969,7 +969,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1108525718}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 02ba4d2d9af009243a04ca3655b7711b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1078,7 +1078,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1213699514}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 02ba4d2d9af009243a04ca3655b7711b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1138,13 +1138,25 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 164299204}
-    - target: {fileID: 4202398283583751314, guid: 0ef4807996d257845900c35757b52936, type: 3}
-      propertyPath: dashForce
-      value: 650
+    - target: {fileID: 4202398283583751312, guid: 0ef4807996d257845900c35757b52936, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202398283583751314, guid: 0ef4807996d257845900c35757b52936, type: 3}
-      propertyPath: dashInvulnerabilityFrame
-      value: 0.4
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202398283583751314, guid: 0ef4807996d257845900c35757b52936, type: 3}
+      propertyPath: smoothing
+      value: 0.036
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202398283583751315, guid: 0ef4807996d257845900c35757b52936, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202398283583751315, guid: 0ef4807996d257845900c35757b52936, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4202398283583751317, guid: 0ef4807996d257845900c35757b52936, type: 3}
       propertyPath: m_RootOrder
@@ -1288,7 +1300,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1826144459}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 02ba4d2d9af009243a04ca3655b7711b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

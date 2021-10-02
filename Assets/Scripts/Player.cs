@@ -7,7 +7,8 @@ public class Player : Animal
     Rigidbody2D rb;
     BoxCollider2D boxCollider;
     SpriteRenderer spriteRenderer;
-
+	
+	[Range(0,0.5f)] public float smoothing = 0.05f;
     public float speed = 5.0f;
 	public bool isFacingRight = true; // depends on sprite
 
@@ -27,7 +28,9 @@ public class Player : Animal
 	public float dashInvulnerabilityFrame = 0.5f;
 
     public GameObject dashParticlesPrefab;
-    GameObject dashParticlesInstance;
+	GameObject dashParticlesInstance;
+    
+	private Vector3 vectorZero = new Vector3(0,0,0);
 
     // Start is called before the first frame update
     void Start()
@@ -88,9 +91,13 @@ public class Player : Animal
 	    
         
         // Horizontal movement
-	    float movement = Input.GetAxis("Horizontal") * horizontalSpeed * Time.deltaTime;
         if (canMove)
-            transform.position = new Vector3(transform.position.x + movement, transform.position.y, 0);
+        {
+	        float movement = Input.GetAxis("Horizontal") * horizontalSpeed;
+            Vector3 targetVelocity = new Vector2(movement, rb.velocity.y);
+            // And then smoothing it out and applying it to the character
+	        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref vectorZero , smoothing);
+        }
 
 
 
