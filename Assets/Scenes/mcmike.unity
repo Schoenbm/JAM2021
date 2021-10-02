@@ -1304,17 +1304,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3126838789452768961, guid: 0ef4807996d257845900c35757b52936, type: 3}
-      propertyPath: recoil
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202398283583751316, guid: 0ef4807996d257845900c35757b52936, type: 3}
-      propertyPath: m_FlipX
+    - target: {fileID: 3126838787821504632, guid: 0ef4807996d257845900c35757b52936, type: 3}
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3126838787821504632, guid: 0ef4807996d257845900c35757b52936, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1579953791
+      objectReference: {fileID: 0}
     - target: {fileID: 4202398283583751316, guid: 0ef4807996d257845900c35757b52936, type: 3}
-      propertyPath: m_FlipY
-      value: 0
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202398283583751316, guid: 0ef4807996d257845900c35757b52936, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1869117065
       objectReference: {fileID: 0}
     - target: {fileID: 4202398283583751317, guid: 0ef4807996d257845900c35757b52936, type: 3}
       propertyPath: m_RootOrder
