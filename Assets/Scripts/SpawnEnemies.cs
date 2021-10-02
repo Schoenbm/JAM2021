@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
-
+	public gameManager gm;
     public GameObject enemyObj;
     public int spawnsRemaining = 10;
     public float timeBetweenSpawns = 2.5f;
@@ -15,12 +15,16 @@ public class SpawnEnemies : MonoBehaviour
 
         canSpawn = false;
         enemy = Instantiate(enemyObj, this.transform.position, new Quaternion()) as GameObject;
-        enemy.GetComponent<Enemy>().spawner = this;
+	    enemy.GetComponent<Enemy>().spawner = this;
+	    enemy.GetComponent<Enemy>().setGm(gm);
         spawnsRemaining -= 1;
         yield return new WaitForSeconds(timeBetweenSpawns);
         canSpawn = true;
     }
 
+	void Start(){
+		gm = FindObjectOfType<gameManager>();
+	}
     // Update is called once per frame
     void Update()
     {

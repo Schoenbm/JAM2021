@@ -12,4 +12,6 @@ public class DropLoot : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 	}
+	
+	
 }

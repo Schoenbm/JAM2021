@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,5 +9,9 @@ public abstract class Rule
 
     public abstract void applyRule();
 
-    public abstract void removeRule();
+	public abstract void removeRule();
+    
+	public string getName(){return ruleName;}
+	public string getDescription(){return description;}
+	
 }

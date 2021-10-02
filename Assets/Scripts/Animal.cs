@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Animal : MonoBehaviour
 {
+	protected gameManager gm;
 	public int totalHealthPoints;
 	protected int currentHealthPoints;
 	protected bool invulnerable;
@@ -31,6 +32,9 @@ public abstract class Animal : MonoBehaviour
 	}
 	
 	abstract public void Die();
+	
+	public void setGm(gameManager pGm){gm = pGm	;}
+	
 	
 	IEnumerator Hit(){
 		invulnerable = true;
