@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class Player : Animal
 {
     Rigidbody2D rb;
     BoxCollider2D boxCollider;
@@ -128,4 +128,9 @@ public class PlayerMove : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, boxCollider.bounds.extents.y + rayOffset, LayerMask.GetMask("Platform"));
         return hit.collider != null;
     }
+    
+	override
+	public void Die(){
+		
+	}
 }

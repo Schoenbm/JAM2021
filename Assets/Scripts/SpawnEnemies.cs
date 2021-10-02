@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +16,7 @@ public class SpawnEnemies : MonoBehaviour
 
         canSpawn = false;
         enemy = Instantiate(enemyObj, this.transform.position, new Quaternion()) as GameObject;
-        enemy.GetComponent<EnemyBehavior>().spawnerName = this.name;
+        enemy.GetComponent<Enemy>().spawner = this;
         spawnsRemaining -= 1;
         yield return new WaitForSeconds(timeBetweenSpawns);
         canSpawn = true;
@@ -28,4 +28,8 @@ public class SpawnEnemies : MonoBehaviour
         if (spawnsRemaining > 0 && canSpawn) 
             StartCoroutine(spawnEnemy());
     }
+    
+	public void spawnedEnemyDied(){
+		spawnsRemaining +=1;
+	}
 }

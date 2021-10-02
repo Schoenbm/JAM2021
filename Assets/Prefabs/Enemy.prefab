@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5201393329594544082}
   - component: {fileID: 8002625532861076554}
   - component: {fileID: -1336480484246262810}
-  - component: {fileID: -2456133716271077535}
+  - component: {fileID: 2684370748257305250}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!114 &-2456133716271077535
+--- !u!114 &2684370748257305250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,9 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4215599612503139431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deadf88a5c3a7884fbb98001aec756de, type: 3}
+  m_Script: {fileID: 11500000, guid: abb9620a85abead409fb36ec558f1e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 3
-  travelSpeed: 5
-  spawnerName: 
+  totalHealthPoints: 3
+  strengh: 1
+  spawner: {fileID: 0}
+  travelSpeed: 2
