@@ -12,7 +12,6 @@ public class gameManager : MonoBehaviour
 	int killingSpree;
 
 	int currentLife;
-	float chaos;
 	private Player player;
 	public GameObject playerPrefab;
 	public GameObject spawnPoint;
@@ -32,7 +31,6 @@ public class gameManager : MonoBehaviour
 		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		score = 0;
 		combo = 0;
-		chaos = 0.0f;
 		currentLife = player.totalHealthPoints;
 	}
 
@@ -57,6 +55,7 @@ public class gameManager : MonoBehaviour
 		
 		if (chaosBarFill.fillAmount < 1)
 			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime;
+		
 		
 		Score.text = "score: "+score;
 		if (combo >= 2)
