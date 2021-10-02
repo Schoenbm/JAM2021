@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4202398283583751315}
   - component: {fileID: 4202398283583751312}
   m_Layer: 0
-  m_Name: kirby
+  m_Name: JohnnyZeRat
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
