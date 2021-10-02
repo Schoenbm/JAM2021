@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,4 +44,11 @@ public class RuleManager : MonoBehaviour
             activeRule.applyRule(); // start rule
         }
     }
+   
+	public string activeRuleDescription(){
+		return(activeRule.getDescription());
+	}
+	public string activeRuleName(){
+		return(activeRule.getName());
+	}
 }

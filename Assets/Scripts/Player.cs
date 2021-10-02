@@ -32,6 +32,8 @@ public class Player : Animal
     
 	private Vector3 vectorZero = new Vector3(0,0,0);
 
+	public int getCurrentHealth(){return currentHealthPoints;}
+	
     // Start is called before the first frame update
     void Start()
     {
