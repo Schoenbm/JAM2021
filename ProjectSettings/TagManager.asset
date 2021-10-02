@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Level
   - Bullet
+  - Enemy
+  - Wall
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Level
+  - Platform
   - Player
   - 
   - 

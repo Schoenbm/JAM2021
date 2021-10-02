@@ -15,7 +15,8 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) 
     {
         print("Collision with: " + collision.transform.name);
-        Destroy(this.gameObject);
+        if (!collision.transform.CompareTag("Player"))
+            Destroy(this.gameObject);
     }
 
 }

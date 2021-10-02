@@ -1,25 +1,30 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float jumpForce = 5.0f;
-
     Rigidbody2D rb;
     BoxCollider2D boxCollider;
     SpriteRenderer spriteRenderer;
 
+    public float speed = 5.0f;
+    bool isFacingRight = true; // depends on sprite
+
+    public float jumpForce = 5.0f;
     int maxJumps = 1;
     int jumpsLeft = 1;
     bool isJumpPressed;
 
-    float coolDownMax = 0.1f;
-    float coolDown = 0.0f;
+    float jumpCoolDownMax = 0.1f;
+    float jumpCoolDown = 0.0f;
 
-    bool isFacingRight = true; // depends on sprite
+    float coolDownDashMax = 1f;
+    float coolDownDash = 0.0f;
+    float dashDistance = 2f;
 
+    public GameObject dashParticlesPrefab;
+    GameObject dashParticlesInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -27,18 +32,19 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        dashParticlesInstance = Instantiate(dashParticlesPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
         float horizontalSpeed = speed;
-        coolDown += Time.deltaTime;
+        jumpCoolDown += Time.deltaTime;
 
         // Jump
         if (jumpsLeft > 0 && Input.GetAxisRaw("Jump") > 0 && !isJumpPressed)
         {
-            coolDown = 0.0f;
+            jumpCoolDown = 0.0f;
             rb.velocity = new Vector2(rb.velocity.x, 0); // avoids force building up and avoids jumps being damped
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpsLeft--;
@@ -47,14 +53,16 @@ public class PlayerMove : MonoBehaviour
         }
 
         // Reset can jump
-        if(Input.GetAxisRaw("Jump") == 0) {
+        if (Input.GetAxisRaw("Jump") == 0)
+        {
             isJumpPressed = false;
         }
 
         // if grounded and cooldown done 
         if (isGrounded())
         {
-            if(coolDown >= coolDownMax) {
+            if (jumpCoolDown >= jumpCoolDownMax)
+            {
                 jumpsLeft = maxJumps;
             }
         }
@@ -68,17 +76,41 @@ public class PlayerMove : MonoBehaviour
         transform.position = new Vector3(transform.position.x + movement, transform.position.y, 0);
 
         // flip
-        if((isFacingRight && Input.GetAxis("Horizontal") < 0) || (!isFacingRight && Input.GetAxis("Horizontal") > 0)) {
+        if ((isFacingRight && Input.GetAxis("Horizontal") < 0) || (!isFacingRight && Input.GetAxis("Horizontal") > 0))
+        {
             isFacingRight = !isFacingRight;
             spriteRenderer.flipX = !spriteRenderer.flipX;
         }
+
+        // Dash
+        coolDownDash += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && coolDownDash > coolDownDashMax)
+        {
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                coolDownDash = 0f;
+                dashParticlesInstance.transform.position = transform.position;
+                dashParticlesInstance.GetComponent<ParticleSystem>().Play();
+                transform.Translate(dashDistance, 0, 0);
+
+            }
+            else if (Input.GetAxis("Horizontal") < 0)
+            {
+                coolDownDash = 0f;
+                dashParticlesInstance.transform.position = transform.position;
+                dashParticlesInstance.GetComponent<ParticleSystem>().Play();
+                transform.Translate(-dashDistance, 0, 0);
+            }
+
+        }
     }
 
-    // Checks if standing on a platform (use "Level" layer on every jumpable gameobject)
+    // Checks if standing on a platform (use "Platform" layer on every jumpable gameobject)
     bool isGrounded()
     {
         float rayOffset = 0.05f;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, boxCollider.bounds.extents.y + rayOffset, LayerMask.GetMask("Level"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, boxCollider.bounds.extents.y + rayOffset, LayerMask.GetMask("Platform"));
         return hit.collider != null;
     }
 }
