@@ -22,7 +22,7 @@ public class Enemy : Animal
 	
 	override
 	public void Die(){
-		Instantiate(DropPrefab, this.transform.position, this.transform.rotation);
+		Instantiate(DropPrefab, this.transform.position, Quaternion.identity);
 		spawner.spawnedEnemyDied();
 		Destroy(this.gameObject);
 
