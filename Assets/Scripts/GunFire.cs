@@ -13,7 +13,7 @@ public class GunFire : MonoBehaviour
     IEnumerator Shoot() 
     {
         canShoot = false;
-        Instantiate(bulletObj, this.transform);
+        Instantiate(bulletObj, this.transform.position, new Quaternion());
         yield return new WaitForSeconds(rateOfFire);
         canShoot = true;
     }
