@@ -221,4 +221,5 @@ MonoBehaviour:
   strengh: 1
   knockback: 1000
   spawner: {fileID: 0}
+  DropPrefab: {fileID: 3722102798904244809, guid: 087617a02fce59245b021a461faf1957, type: 3}
   travelSpeed: 2

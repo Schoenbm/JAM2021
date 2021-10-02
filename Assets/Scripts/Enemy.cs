@@ -9,6 +9,8 @@ public class Enemy : Animal
 	
 	protected float speed = 2.0f;
 	public SpawnEnemies spawner;
+	
+	public GameObject DropPrefab;
 
 
     private void OnCollisionEnter2D(Collision2D collision) 
@@ -26,8 +28,8 @@ public class Enemy : Animal
 	
 	override
 	public void Die(){
+		Instantiate(DropPrefab, this.transform.position, this.transform.rotation);
 		spawner.spawnedEnemyDied();
-		Debug.Log("Death");
 		Destroy(this.gameObject);
 
 	}
