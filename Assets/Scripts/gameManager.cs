@@ -12,11 +12,16 @@ public class gameManager : MonoBehaviour
 	int killingSpree;
 
 	int currentLife;
-
+	float chaos;
 	private Player player;
 	public GameObject playerPrefab;
 	public GameObject spawnPoint;
 
+	private Image chaosBarMask;
+	public Image chaosBar;
+	public float chaosFillSpeed = 0.01f;
+	public Bomb bomb;
+	
 	public List<Image> heartContainers;
 	public TextMeshProUGUI Score;
 	public TextMeshProUGUI Combo;
@@ -24,9 +29,11 @@ public class gameManager : MonoBehaviour
 	void Start()
 	{
 		player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
+		chaosBarMask = chaosBar.transform.GetChild(0).GetComponent<Image>();
+		print(chaosBarMask.transform.name);
 		score = 0;
 		combo = 0;
-
+		chaos = 0.0f;
 		currentLife = player.totalHealthPoints;
 	}
 
@@ -35,6 +42,7 @@ public class gameManager : MonoBehaviour
 		killingSpree += 1;
 		combo = (int)Mathf.Sqrt(killingSpree);
 		score += combo;
+		bomb.reducePressure();
 	}
 
 	public void addExtraLife()
@@ -46,6 +54,10 @@ public class gameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		currentLife = player.getCurrentHealth();
+		if (chaosBarMask.fillAmount < 1)
+			chaosBarMask.fillAmount += chaosFillSpeed * Time.deltaTime;
+		
 		Score.text = "score: "+score;
 		if (combo >= 2)
 			Combo.text = "x" + combo + "!";
@@ -65,4 +77,6 @@ public class gameManager : MonoBehaviour
 			}
 		currentLife = player.getCurrentHealth();
 	}
+	
+	public void GameOver(){}
 }
