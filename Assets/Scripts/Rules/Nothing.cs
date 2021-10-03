@@ -12,7 +12,7 @@ public class Nothing : Rule
 	}
 	
 	public override void applyRule(){
-		;
+		
 	}
 
 	public override void removeRule(){
