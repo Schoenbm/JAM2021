@@ -151,8 +151,8 @@ public class Player : Animal
 	public void setDash(bool b){
 		canDash = b;
 	}
-    
-	override public void Die(){
-		gm.GameOver();
+
+    override public void Die(){
+        gm.GameOver();
 	}
 }

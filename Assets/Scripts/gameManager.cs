@@ -18,6 +18,8 @@ public class gameManager : MonoBehaviour
 	private Player player;
 	public GameObject playerPrefab;
 	public GameObject spawnPoint;
+	
+	public Camera camera;
 
 	private Image chaosBarFill;
 	public Image chaosBar;
@@ -30,6 +32,7 @@ public class gameManager : MonoBehaviour
 	public TextMeshProUGUI ScoreGameOver;
 	public Canvas PauseMenu;
 	public Canvas GameOverCanvas;
+
 	
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
@@ -46,6 +49,7 @@ public class gameManager : MonoBehaviour
 		gamePaused = false;
 		score = 0;
 		combo = 0;
+		
 		currentLife = player.totalHealthPoints;
 		bomb.setSpawnPoint(spawnPoint.transform.position); // set respawn point in case of player falling down in bomb
 	}
@@ -87,7 +91,16 @@ public class gameManager : MonoBehaviour
 	{
 		this.combo = 0;
 		this.killingSpree = 0;
-
+		float val = Random.Range(0f, 1f);
+		if (val <= 0.5f)
+		{ 
+			FindObjectOfType<AudioManager>().Play("Get_Hit_1");
+		}
+		else
+		{
+			FindObjectOfType<AudioManager>().Play("Get_Hit_2");
+		}
+		
 		Combo.text = "";
 
 		for(int i = player.getCurrentHealth(); i < player.getMaxHealth(); i++) {
@@ -118,19 +131,25 @@ public class gameManager : MonoBehaviour
 	}
 	public void Pause(){
 		PauseMenu.enabled = true;
+		FindObjectOfType<AudioManager>().Play("Pause_In");
+		camera.GetComponent<AudioLowPassFilter>().cutoffFrequency = 500f;
 		Time.timeScale = 0f;
 		gamePaused = true;
 	}
 	public void Resume()
 	{
 		PauseMenu.enabled = false;
+		FindObjectOfType<AudioManager>().Play("Pause_Off");
+		camera.GetComponent<AudioLowPassFilter>().cutoffFrequency = 4000;
 		Time.timeScale = 1f;
 		gamePaused = false;
 	}
 	public void Menu(){
+		FindObjectOfType<AudioManager>().Play("Button_Select");
 		SceneManager.LoadScene(0);
 	}
 	public void Quit(){
+		FindObjectOfType<AudioManager>().Play("Button_Select");
 		Application.Quit();
 	}
 
@@ -140,7 +159,8 @@ public class gameManager : MonoBehaviour
 
 	public void GameOver()
 	{
-		Debug.Log("Your score was :" + score);
+		//Debug.Log("Your score was :" + score);
+		FindObjectOfType<AudioManager>().Play("Game_Over");
 		ScoreGameOver.text = "Your score: " + score;
 		Time.timeScale = 0f;
 		GameOverCanvas.enabled = true;

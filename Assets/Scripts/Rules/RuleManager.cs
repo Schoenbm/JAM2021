@@ -80,6 +80,7 @@ public class RuleManager : MonoBehaviour
             activeRule.removeRule(); // remove current rule
 
 	        setNewRule();
+	        FindObjectOfType<AudioManager>().Play("New_Rule");
 	        Debug.Log(activeRule.getName());	
         }
     }
