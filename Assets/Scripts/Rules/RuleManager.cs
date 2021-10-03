@@ -50,6 +50,7 @@ public class RuleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
 	{
+		rules.Add(new Nothing());
 		//rules.Add(new Gravity());
 		//rules.Add(new InfiniteJumps());
 		//rules.Add(new CantJump());
@@ -58,7 +59,7 @@ public class RuleManager : MonoBehaviour
 		//rules.Add(new AlmostTransparent());
 		// BROKEN rules.Add(new AlmostTransparentEnemy());
 		//rules.Add(new FlipRoom());
-		rules.Add(new InvertControls()); //assuming just the movement keys are inverted
+		//rules.Add(new InvertControls()); //assuming just the movement keys are inverted
         // TODO: Add all rules to list
 		
 		setNewRule();
@@ -73,7 +74,6 @@ public class RuleManager : MonoBehaviour
 	    Debug.Log(ruleDuration);
         if (timer >= ruleDuration)
         {
-        	
 	        timer = 0.0f;
             activeRule.removeRule(); // remove current rule
 
