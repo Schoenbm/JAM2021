@@ -11,6 +11,8 @@ public abstract class Animal : MonoBehaviour
 	protected bool canMove;
 	public float invulnerabilityFrame;
 	protected Vector3 vectorZero = new Vector3(0,0,0);
+	protected Color ogColor;
+	
 	public void Awake(){
 		currentHealthPoints = totalHealthPoints;
 	}
@@ -39,15 +41,16 @@ public abstract class Animal : MonoBehaviour
 	
 	
 	IEnumerator Hit(){
+		ogColor = this.gameObject.GetComponent<SpriteRenderer>().color;
 		invulnerable = true;
 		SpriteRenderer sp = this.gameObject.GetComponent<SpriteRenderer>();
-		sp.color = new Color(1, 0.6f, 0.6f);
+		sp.color = ogColor + new Color(0.5f, 0.3f, 0.3f, 0.1f);
 		yield return new WaitForSeconds(invulnerabilityFrame);
 		invulnerable = false;
 		
 		if(invulnerabilityFrame ==0)
 			yield return new WaitForSeconds(0.1f);
-		sp.color = new Color(1, 1 , 1);
+		sp.color = ogColor;
 	}
 	
 	protected IEnumerator Invulnerable(float t){
