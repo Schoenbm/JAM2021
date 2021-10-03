@@ -12,6 +12,7 @@ public class gameManager : MonoBehaviour
 	int combo;
 	int killingSpree;
 	bool gamePaused;
+	public int DamageModifier {get; set;}
 	
 	int currentLife;
 	private Player player;
@@ -31,16 +32,15 @@ public class gameManager : MonoBehaviour
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
+		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
+		DamageModifier = 1;
 	}
-	
-	
 	
 	void Start()
 	{
 		PauseMenu.enabled= false;
 		gamePaused = false;
-		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		score = 0;
 		combo = 0;
 		currentLife = player.totalHealthPoints;

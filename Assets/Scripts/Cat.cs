@@ -14,13 +14,13 @@ public class Cat : Enemy
 	}
 	private void OnCollisionEnter2D(Collision2D collision) 
 	{
+		print(collision.transform.name);
 		switch (collision.transform.tag) 
 		{
 		case "Wall":
 			direction *= -1;
 			this.gameObject.GetComponent<SpriteRenderer>().flipX = !this.gameObject.GetComponent<SpriteRenderer>().flipX;
 			break;
-            
 		}
 	}
 	

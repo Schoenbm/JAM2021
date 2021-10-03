@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : Animal
 {
-	public int strengh;
+	public int strength;
 	public float knockback;
 	
 	protected float speed = 2.0f;
@@ -12,17 +12,16 @@ public class Enemy : Animal
 	
 	public GameObject DropPrefab;
 
-
     private void OnCollisionEnter2D(Collision2D collision) 
-    {
-    	if (collision.transform.tag == "Player"){
-    		collision.gameObject.GetComponent<Player>().GetHit(strengh, this.transform.position, knockback);
+	{
+		if (collision.transform.tag == "Player"){
+    		collision.gameObject.GetComponent<Player>().GetHit(strength * gm.DamageModifier, this.transform.position, knockback);
     	}
     }
 	
 	public void hitPlayer(Collider2D collision){
 		if (collision.transform.tag == "Player"){
-			collision.gameObject.GetComponent<Player>().GetHit(strengh, this.transform.position, knockback);
+			collision.gameObject.GetComponent<Player>().GetHit(strength * gm.DamageModifier, this.transform.position, knockback);
 		}
 	}
 	

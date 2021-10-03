@@ -21,7 +21,9 @@ public class RuleManager : MonoBehaviour
 		gameManager gm = GameObject.Find("GameManager").GetComponent<gameManager>();
 		string previousRule = activeRule?.getName();
 		
-		ruleDuration = Random.Range(minSeconds, maxSeconds);
+		float chaosTimeModifier = 1 - chaosBarFill.GetComponent<Image>().fillAmount;
+		
+		ruleDuration = Random.Range(minSeconds, maxSeconds)* chaosTimeModifier;
 		activeRule = rules[Random.Range(0, rules.Count)];
 		
 		if (activeRule != null && rules.Count > 1)
@@ -38,6 +40,12 @@ public class RuleManager : MonoBehaviour
 		activeRule.applyRule();
 	}
 
+	// Awake is called when the script instance is being loaded.
+	protected void Awake()
+	{
+		chaosBarFill = GameObject.Find("Fill");
+	}
+
     // Start is called before the first frame update
     void Start()
 	{
@@ -45,12 +53,13 @@ public class RuleManager : MonoBehaviour
 		//rules.Add(new InfiniteJumps());
 		//rules.Add(new CantJump());
 		//rules.Add(new ConstantShooting());
-		rules.Add(new FlipRoom());
+		//rules.Add(new FlipRoom());
+		rules.Add(new DoubleDamage());
         // TODO: Add all rules to list
 		
 		setNewRule();
         
-	    chaosBarFill = GameObject.Find("Fill");
+	    
     }
 
     // Update is called once per frame
@@ -60,8 +69,6 @@ public class RuleManager : MonoBehaviour
 	    Debug.Log(ruleDuration);
         if (timer >= ruleDuration)
         {
-        	
-        	//float chaosTimeModifier = 1 - chaosBarFill.GetComponent<Image>().fillAmount;
         	
 	        timer = 0.0f;
             activeRule.removeRule(); // remove current rule

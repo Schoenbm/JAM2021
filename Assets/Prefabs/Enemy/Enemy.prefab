@@ -218,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealthPoints: 3
   invulnerabilityFrame: 0.2
-  strengh: 1
+  strength: 1
   knockback: 1000
   spawner: {fileID: 0}
   DropPrefab: {fileID: 3722102798904244809, guid: 087617a02fce59245b021a461faf1957, type: 3}

@@ -16,6 +16,7 @@ public abstract class Animal : MonoBehaviour
 	}
 	
 	public void GetHit(int pStr, Vector3 pCoordObjHit, float pKnockback){
+		print("damage taken:" + pStr);
 		if(invulnerable)
 			return;
 		currentHealthPoints -= pStr;
