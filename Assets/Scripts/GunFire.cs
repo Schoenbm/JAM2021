@@ -11,12 +11,19 @@ public class GunFire : MonoBehaviour
 	public float recoil = 0.5f;
 	public Rigidbody2D rbplayer;
 	private bool canShoot = true;
-	public Camera camera;
+	public Camera gameCamera;
 	private bool faceRight = true;
-
+	private bool constantShooting = false;
+	
+	public void setConstantShooting(bool constantShooting)
+	{
+		this.constantShooting = constantShooting;
+	}
+	
 	void Start(){
 		faceRight = true;
 		this.gameObject.GetComponentInParent<Rigidbody2D>();
+		gameCamera = FindObjectOfType<Camera>();
 	}
     IEnumerator Shoot() 
     {
@@ -29,7 +36,7 @@ public class GunFire : MonoBehaviour
 	void FixedUpdate()
 	{
 		Vector3 mousePos3 = Input.mousePosition;
-		Vector2 mousePos = camera.ScreenToWorldPoint(mousePos3);
+		Vector2 mousePos = gameCamera.ScreenToWorldPoint(mousePos3);
 		Vector2 direction = (mousePos - (Vector2)transform.position).normalized;
 		
 		//flip
@@ -46,7 +53,7 @@ public class GunFire : MonoBehaviour
 		transform.eulerAngles = new Vector3 (0, 0, angle);
 		
     	
-        if (Input.GetButton("Fire1") && canShoot) 
+		if ((Input.GetButton("Fire1") || constantShooting) && canShoot) 
         {
 	        StartCoroutine(Shoot());
 	        rbplayer.AddForce(-transform.right * recoil);

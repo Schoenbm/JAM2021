@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +19,7 @@ public class Gravity : Rule
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         playerBaseGravity = player.GetComponent<Rigidbody2D>().gravityScale;
-        enemyBaseGravity = enemies[0].GetComponent<Rigidbody2D>().gravityScale;
+	    //enemyBaseGravity = enemies[0].GetComponent<Rigidbody2D>().gravityScale;
     }
 
     public override void applyRule()

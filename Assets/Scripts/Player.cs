@@ -15,9 +15,10 @@ public class Player : Animal
 	public float jumpForce = 0.5f;
 	public float fallMultiplier = 2.5f;
 	public float lowJumpMultiplier = 5f;
-    int maxJumps = 1;
+	int maxJumps = 1;
     int jumpsLeft = 1;
-    bool isJumpPressed;
+	bool isJumpPressed;
+	public int Inverted {get; set;}
 
 	float jumpCoolDownMax = 0.35f;
     float jumpCoolDown = 0.0f;
@@ -26,20 +27,26 @@ public class Player : Animal
     float coolDownDash = 0.0f;
 	public float dashForce = 2f;
 	public float dashInvulnerabilityFrame = 0.5f;
+	private bool canDash = true;
 
     public GameObject dashParticlesPrefab;
 	GameObject dashParticlesInstance;
     
-	private Vector3 vectorZero = new Vector3(0,0,0);
 
+    public int getMaxHealth() {return totalHealthPoints;}
+	public int getCurrentHealth(){return currentHealthPoints;}
+	
     // Start is called before the first frame update
     void Start()
-    {
+	{
+		Inverted = 1;
         canMove = true;
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         dashParticlesInstance = Instantiate(dashParticlesPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+        setGm(FindObjectOfType<gameManager>());
     }
 
     // Update is called once per frame
@@ -94,7 +101,7 @@ public class Player : Animal
         if (canMove)
         {
 	        float movement = Input.GetAxis("Horizontal") * horizontalSpeed;
-            Vector3 targetVelocity = new Vector2(movement, rb.velocity.y);
+	        Vector3 targetVelocity = new Vector2(movement * Inverted, rb.velocity.y);
             // And then smoothing it out and applying it to the character
 	        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref vectorZero , smoothing);
         }
@@ -112,7 +119,7 @@ public class Player : Animal
         // Dash
         coolDownDash += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && coolDownDash > coolDownDashMax)
+	    if (Input.GetKeyDown(KeyCode.LeftShift) && coolDownDash > coolDownDashMax && canDash)
         {
         	coolDownDash = 0f;
             dashParticlesInstance.transform.position = transform.position;
@@ -137,8 +144,15 @@ public class Player : Animal
         return hit.collider != null;
     }
     
-	override
-	public void Die(){
-		
+	public void setMaxJumps(int jumps){
+		maxJumps = jumps;
+	}
+    
+	public void setDash(bool b){
+		canDash = b;
+	}
+    
+	override public void Die(){
+		gm.GameOver();
 	}
 }

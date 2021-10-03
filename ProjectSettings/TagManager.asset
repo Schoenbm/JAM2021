@@ -9,6 +9,9 @@ TagManager:
   - Wall
   - Platform
   - Level
+  - Bomb
+  - Gun
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -19,10 +22,10 @@ TagManager:
   - Platform
   - Player
   - gun
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - hitbox
+  - bullets
+  - Objects
   - 
   - 
   - 
@@ -49,9 +52,12 @@ TagManager:
   - name: gun
     uniqueID: 2715013505
     locked: 0
+  - name: enemy
+    uniqueID: 3224555151
+    locked: 0
   - name: player
     uniqueID: 1869117065
     locked: 0
-  - name: enemy
-    uniqueID: 3224555151
+  - name: bullets
+    uniqueID: 762025545
     locked: 0
