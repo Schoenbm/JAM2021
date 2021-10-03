@@ -29,6 +29,7 @@ public class Player : Animal
 	public float dashInvulnerabilityFrame = 0.5f;
 	private bool canDash = true;
 
+	public Sprite[] spriteChange;
     public GameObject dashParticlesPrefab;
 	GameObject dashParticlesInstance;
     
