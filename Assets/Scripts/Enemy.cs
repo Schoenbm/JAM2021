@@ -19,8 +19,14 @@ public class Enemy : Animal
 	
 	public void hitPlayer(Collider2D collision){
 		if (collision.transform.tag == "Player"){
-			collision.gameObject.GetComponent<Player>().GetHit(strength * gm.DamageModifier, this.transform.position, knockback);
-			gm.playerHit();
+			Player p = collision.gameObject.GetComponent<Player>();
+			if(p.isInvincible) {
+				Die();
+			}
+			else {
+				p.GetHit(strength * gm.DamageModifier, this.transform.position, knockback);
+				gm.playerHit();
+			}
 		}
 	}
 	

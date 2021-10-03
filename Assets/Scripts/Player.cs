@@ -36,6 +36,8 @@ public class Player : Animal
     public int getMaxHealth() {return totalHealthPoints;}
 	public int getCurrentHealth(){return currentHealthPoints;}
 	
+	public bool isInvincible  {get; set;}
+	
     // Start is called before the first frame update
     void Start()
 	{

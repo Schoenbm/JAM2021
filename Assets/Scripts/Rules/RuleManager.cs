@@ -49,6 +49,7 @@ public class RuleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
 	{
+		rules.Add(new Invincible());
 		rules.Add(new Nothing());
 		rules.Add(new Gravity());
 		rules.Add(new InfiniteJumps());
@@ -60,7 +61,7 @@ public class RuleManager : MonoBehaviour
 		rules.Add(new FlipRoom());
 		rules.Add(new InvertControls()); //assuming just the movement keys are inverted
 		rules.Add(new PowerfulRecoil());
-        // TODO: Add all rules to list
+		// TODO: Add all rules to list
 		
 		activeRule = new Nothing();
 		ruleDuration = maxSeconds;
