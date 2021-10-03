@@ -50,6 +50,7 @@ MonoBehaviour:
   damage: 1
   knockback: 300
   bulletTravelSpeed: 15
+  bulletMaterial: {fileID: 2100000, guid: a26d1a22873c68f4eafc034b630ad6fb, type: 2}
 --- !u!50 &1569316923943622217
 Rigidbody2D:
   serializedVersion: 4

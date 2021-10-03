@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 	public int damage;
 	public float knockback;
 	public float bulletTravelSpeed = 20f;
+	public Material bulletMaterial;
 	private Rigidbody2D rb;
 
 	private int secondsToLive = 5;
@@ -15,10 +16,8 @@ public class Bullet : MonoBehaviour
 	void Awake(){
 		rb = this.gameObject.GetComponent<Rigidbody2D>();
 		rb.velocity = transform.right * bulletTravelSpeed;
-		//AllIn1Shader shader = gameObject.AddComponent(typeof(AllIn1Shader)) as AllIn1Shader;
-		//shader.MakeNewMaterial(true,"Allin1Sprite");
 		gm = FindObjectOfType<gameManager>();
-		
+		this.gameObject.GetComponent<SpriteRenderer>().material = bulletMaterial;
 		Destroy(gameObject, secondsToLive);
 	}
 

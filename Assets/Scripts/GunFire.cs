@@ -34,6 +34,7 @@ public class GunFire : MonoBehaviour
 		this.gameObject.GetComponentInParent<Rigidbody2D>();
 		gameCamera = FindObjectOfType<Camera>();
 		gm = FindObjectOfType<gameManager>();
+		gunSprite.material = rbplayer.gameObject.GetComponent<Player>().animalMaterial;
 	}
     IEnumerator Shoot() 
     {

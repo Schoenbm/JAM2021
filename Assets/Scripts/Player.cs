@@ -46,7 +46,6 @@ public class Player : Animal
         boxCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         dashParticlesInstance = Instantiate(dashParticlesPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-
         setGm(FindObjectOfType<gameManager>());
     }
 

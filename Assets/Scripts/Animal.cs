@@ -6,6 +6,7 @@ public abstract class Animal : MonoBehaviour
 {
 	protected gameManager gm;
 	public int totalHealthPoints;
+	public Material animalMaterial;
 	protected int currentHealthPoints;
 	protected bool invulnerable;
 	protected bool canMove;
@@ -15,6 +16,7 @@ public abstract class Animal : MonoBehaviour
 	
 	public void Awake(){
 		currentHealthPoints = totalHealthPoints;
+		this.gameObject.GetComponent<SpriteRenderer>().material = animalMaterial;
 	}
 	
 	public void GetHit(int pStr, Vector3 pCoordObjHit, float pKnockback){
