@@ -104,6 +104,9 @@ public class gameManager : MonoBehaviour
 		else if (currentLife > player.getCurrentHealth())
 		{
 			this.combo = 0;
+
+			Combo.text = "";
+
 			this.killingSpree = 0;
 			//Debug.Log("Player hurt seen :" + combo);
 			for (int i = player.getCurrentHealth(); i < currentLife && i < heartContainers.Count; i++)
