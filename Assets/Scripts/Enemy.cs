@@ -26,6 +26,7 @@ public class Enemy : Animal
 			else {
 				p.GetHit(strength * gm.DamageModifier, this.transform.position, knockback);
 				gm.playerHit();
+				Debug.Log(this.gameObject.name + " hit player");
 			}
 		}
 	}

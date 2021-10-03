@@ -58,14 +58,17 @@ public class RuleManager : MonoBehaviour
 		rules.Add(new DoubleDamage());
 		rules.Add(new AlmostTransparent());
 		//BROKEN rules.Add(new AlmostTransparentEnemy());
+		rules.Add(new RoussianRoulette());
 		rules.Add(new FlipRoom());
+		rules.Add(new Shaking());
 		rules.Add(new InvertControls()); //assuming just the movement keys are inverted
 		rules.Add(new PowerfulRecoil());
-		// TODO: Add all rules to list
+		rules.Add(new ChangeSkin());
+        // TODO: Add all rules to list
 		
 		activeRule = new Nothing();
+		activeRule.applyRule();
 		ruleDuration = maxSeconds;
-        
 	    
     }
 
@@ -81,6 +84,7 @@ public class RuleManager : MonoBehaviour
             activeRule.removeRule(); // remove current rule
 
 	        setNewRule();
+	        FindObjectOfType<AudioManager>().Play("New_Rule");
 	        Debug.Log(activeRule.getName());	
         }
     }

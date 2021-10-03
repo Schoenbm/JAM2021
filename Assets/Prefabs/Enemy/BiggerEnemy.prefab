@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7186100761622852048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 233.89581, y: -16.242477, z: 0}
-  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.6, z: 1}
   m_Children:
   - {fileID: 4519138754207956324}
   m_Father: {fileID: 0}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1070412145
-  m_SortingLayer: 2
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3b89005d44828a540bb8bb9763f21cb5, type: 3}
   m_Color: {r: 0.9056604, g: 0.72196513, b: 0.72196513, a: 1}
@@ -146,13 +146,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalHealthPoints: 18
+  animalMaterial: {fileID: 2100000, guid: 46d0acd28a6a6354ca2a9af5e8b63c6f, type: 2}
   invulnerabilityFrame: 0
   probabilityDrop: 40
   strength: 2
   knockback: 300
   spawner: {fileID: 0}
   DropPrefab: {fileID: 3722102798904244809, guid: 087617a02fce59245b021a461faf1957, type: 3}
-  travelSpeed: 1
+  travelSpeed: 0.7
   smoothing: 0.145
 --- !u!1 &8423125731682978135
 GameObject:

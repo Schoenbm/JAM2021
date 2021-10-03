@@ -6,6 +6,7 @@ public class GunFire : MonoBehaviour
 {
 	public SpriteRenderer gunSprite;
 	public GameObject gunpoint;
+	gameManager gm;
     public GameObject bulletObj;
     public float rateOfFire = 0.5f;
 	public float recoil = 0.5f;
@@ -14,6 +15,9 @@ public class GunFire : MonoBehaviour
 	public Camera gameCamera;
 	private bool faceRight = true;
 	private bool constantShooting = false;
+	private bool rr = false;
+	
+	private AudioSource audioSrc;
 	
 	public void setConstantShooting(bool constantShooting)
 	{
@@ -29,14 +33,21 @@ public class GunFire : MonoBehaviour
 		faceRight = true;
 		this.gameObject.GetComponentInParent<Rigidbody2D>();
 		gameCamera = FindObjectOfType<Camera>();
+		gm = FindObjectOfType<gameManager>();
+		gunSprite.material = rbplayer.gameObject.GetComponent<Player>().animalMaterial;
 	}
     IEnumerator Shoot() 
     {
-        canShoot = false;
+	    canShoot = false;
+	    //audioSrc.Play();
 	    Instantiate(bulletObj, gunpoint.transform.position, this.transform.rotation);
         yield return new WaitForSeconds(rateOfFire);
         canShoot = true;
     }
+    
+	public void setRR(bool rr2){
+		rr = rr2;
+	}
 
 	void FixedUpdate()
 	{
@@ -59,9 +70,21 @@ public class GunFire : MonoBehaviour
 		
     	
 		if ((Input.GetButton("Fire1") || constantShooting) && canShoot) 
-        {
-	        StartCoroutine(Shoot());
-	        rbplayer.AddForce(-transform.right * recoil);
+		{
+			if(!rr){
+				StartCoroutine(Shoot());
+				rbplayer.AddForce(-transform.right * recoil);
+			}else{
+				int getRektRR = Random.Range(1,6);
+				if(getRektRR == 1){
+					GetComponentInParent<Player>().GetHit(1 , this.transform.position, 0f);
+					gm.GetComponent<gameManager>().playerHit();
+				}else{
+					StartCoroutine(Shoot());
+					rbplayer.AddForce(-transform.right * recoil);
+				}
+			}
+	        
         }
     }
 
