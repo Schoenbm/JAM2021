@@ -13,6 +13,7 @@ public class gameManager : MonoBehaviour
 	int killingSpree;
 	bool gamePaused;
 	public int DamageModifier {get; set;}
+	public float SpeedModifier {get; set;}
 	
 	int currentLife;
 	private Player player;
@@ -39,6 +40,7 @@ public class gameManager : MonoBehaviour
 		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
 		DamageModifier = 1;
+		SpeedModifier = 1f;
 	}
 	
 	void Start()

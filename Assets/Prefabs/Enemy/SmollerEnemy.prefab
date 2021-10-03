@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalHealthPoints: 5
+  animalMaterial: {fileID: 2100000, guid: 46d0acd28a6a6354ca2a9af5e8b63c6f, type: 2}
   invulnerabilityFrame: 0
   probabilityDrop: 19
   strength: 1
