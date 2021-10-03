@@ -57,7 +57,7 @@ public class RuleManager : MonoBehaviour
 		rules.Add(new DoubleDamage());
 		rules.Add(new AlmostTransparent());
 		//BROKEN rules.Add(new AlmostTransparentEnemy());
-		rules.Add(new FlipRoom());
+		//rules.Add(new FlipRoom());
 		rules.Add(new InvertControls()); //assuming just the movement keys are inverted
 		rules.Add(new PowerfulRecoil());
         // TODO: Add all rules to list

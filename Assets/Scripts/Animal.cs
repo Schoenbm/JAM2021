@@ -44,12 +44,13 @@ public abstract class Animal : MonoBehaviour
 		ogColor = this.gameObject.GetComponent<SpriteRenderer>().color;
 		invulnerable = true;
 		SpriteRenderer sp = this.gameObject.GetComponent<SpriteRenderer>();
-		sp.color = ogColor + new Color(0.5f, 0.3f, 0.3f, 0.1f);
+		sp.color = new Color(0.5f, 0.3f, 0.3f);
 		yield return new WaitForSeconds(invulnerabilityFrame);
 		invulnerable = false;
 		
 		if(invulnerabilityFrame ==0)
 			yield return new WaitForSeconds(0.1f);
+
 		sp.color = ogColor;
 	}
 	
