@@ -17,7 +17,8 @@ public class Player : Animal
 	public float lowJumpMultiplier = 5f;
 	int maxJumps = 1;
     int jumpsLeft = 1;
-    bool isJumpPressed;
+	bool isJumpPressed;
+	public int Inverted {get; set;}
 
 	float jumpCoolDownMax = 0.35f;
     float jumpCoolDown = 0.0f;
@@ -100,7 +101,7 @@ public class Player : Animal
         if (canMove)
         {
 	        float movement = Input.GetAxis("Horizontal") * horizontalSpeed;
-            Vector3 targetVelocity = new Vector2(movement, rb.velocity.y);
+	        Vector3 targetVelocity = new Vector2(movement * Inverted, rb.velocity.y);
             // And then smoothing it out and applying it to the character
 	        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref vectorZero , smoothing);
         }

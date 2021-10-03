@@ -53,10 +53,11 @@ public class RuleManager : MonoBehaviour
 		//rules.Add(new InfiniteJumps());
 		//rules.Add(new CantJump());
 		//rules.Add(new ConstantShooting());
-		rules.Add(new DoubleDamage());
+		//rules.Add(new DoubleDamage());
 		//rules.Add(new AlmostTransparent());
 		// BROKEN rules.Add(new AlmostTransparentEnemy());
 		//rules.Add(new FlipRoom());
+		rules.Add(new InvertControls()); //assuming just the movement keys are inverted
         // TODO: Add all rules to list
 		
 		setNewRule();
