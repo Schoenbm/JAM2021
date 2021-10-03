@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8884260795310159721}
   - component: {fileID: 5774569459022860539}
   - component: {fileID: 5257950744409131410}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: loot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1593489467320018042}
   - component: {fileID: 8194275123035500608}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DropLoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
