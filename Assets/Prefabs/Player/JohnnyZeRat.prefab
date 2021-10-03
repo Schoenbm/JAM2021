@@ -208,17 +208,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1239943137819773961, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
-      propertyPath: recoil
-      value: 125
-      objectReference: {fileID: 0}
-    - target: {fileID: 1239943137819773961, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
       propertyPath: rbplayer
       value: 
       objectReference: {fileID: 4202398283583751315}
-    - target: {fileID: 1239943137819773961, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
-      propertyPath: rateOfFire
-      value: 0.08
-      objectReference: {fileID: 0}
     - target: {fileID: 1239943137819773962, guid: 72cf30d10379d5047a854d62e0a23a1b, type: 3}
       propertyPath: m_Name
       value: Gun

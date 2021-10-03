@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb9620a85abead409fb36ec558f1e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealthPoints: 15
+  totalHealthPoints: 18
   invulnerabilityFrame: 0
   strength: 2
   knockback: 300
