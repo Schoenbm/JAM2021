@@ -88,7 +88,8 @@ public class gameManager : MonoBehaviour
 		Combo.text = "";
 
 		for(int i = player.getCurrentHealth(); i < player.getMaxHealth(); i++) {
-			heartContainers[i].color = new Color(0, 0, 0);
+			if (i>=0)
+				heartContainers[i].color = new Color(0, 0, 0);
 		}
 	}
 

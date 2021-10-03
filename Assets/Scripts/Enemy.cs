@@ -16,12 +16,6 @@ public class Enemy : Animal
 	void Start(){
 		rb = this.GetComponent<Rigidbody2D>();
 	}
-    private void OnCollisionEnter2D(Collision2D collision) 
-	{
-		if (collision.transform.tag == "Player"){
-    		collision.gameObject.GetComponent<Player>().GetHit(strength * gm.DamageModifier, this.transform.position, knockback);
-    	}
-    }
 	
 	public void hitPlayer(Collider2D collision){
 		if (collision.transform.tag == "Player"){

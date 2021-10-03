@@ -15,8 +15,8 @@ public class Bullet : MonoBehaviour
 	void Start(){
 		rb = this.gameObject.GetComponent<Rigidbody2D>();
 		rb.velocity = transform.right * bulletTravelSpeed;
-		AllIn1Shader shader = gameObject.AddComponent(typeof(AllIn1Shader)) as AllIn1Shader;
-		shader.MakeNewMaterial(true,"Allin1Sprite");
+		//AllIn1Shader shader = gameObject.AddComponent(typeof(AllIn1Shader)) as AllIn1Shader;
+		//shader.MakeNewMaterial(true,"Allin1Sprite");
 		gm = FindObjectOfType<gameManager>();
 		
 		Destroy(gameObject, secondsToLive);

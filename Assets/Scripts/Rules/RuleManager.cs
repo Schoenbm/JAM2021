@@ -71,7 +71,7 @@ public class RuleManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-	    Debug.Log(timer + " : " + ruleDuration);
+	    //Debug.Log(timer + " : " + ruleDuration);
         if (timer >= ruleDuration)
         {
         	
