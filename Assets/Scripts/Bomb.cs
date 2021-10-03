@@ -7,12 +7,14 @@ public class Bomb : MonoBehaviour
 	gameManager gm;
 	
 	float pressure = 0.0f; // how much has built up
-	int pressureLevel = 0; // the threshold we are in (0 to 3, 3 is game over)
+	float pressureLevel = 0; // the threshold we are in (0 to 3, 3 is game over)
 	
-	// We will tweak these later on
-	int thresholdLow = 5; // level 1
-	int thresholdMedium = 15; // level 2
-	int thresholdHigh = 25; // level 3
+	float maxPressure = 24.0f; // We will tweak these later on
+	
+	float thresholdLow; // level 1
+	float thresholdMedium; // level 2
+	float thresholdHigh; // level 3
+	
 	
 	Vector3 spawnpoint;
 	BoxCollider2D boxCollider;
@@ -24,6 +26,10 @@ public class Bomb : MonoBehaviour
     {
 	    boxCollider = GetComponent<BoxCollider2D>();
 	    gm = FindObjectOfType<gameManager>();
+	    
+	    thresholdLow = maxPressure * 0.33f; // level 1
+	    thresholdMedium = maxPressure * 0.66f; // level 2
+	    thresholdHigh = maxPressure; // level 3
     }
 
     // Update is called once per frame
@@ -57,6 +63,7 @@ public class Bomb : MonoBehaviour
 	{
 		if(col.tag == "Enemy") {
 			++pressure;
+			gm.increaseChaos();
 			col.gameObject.GetComponent<Enemy>().Fall();
 		}
 		if(col.tag == "Player"){
@@ -71,7 +78,11 @@ public class Bomb : MonoBehaviour
 		pressure -= 0.5f;
 	}
 	
-	public int getPressureLevel(){
+	public float getPressureLevel(){
 		return this.pressureLevel + 1;
+	}
+	
+	public float getMaxPressure() {
+		return this.maxPressure;
 	}
 }

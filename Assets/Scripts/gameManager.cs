@@ -76,7 +76,6 @@ public class gameManager : MonoBehaviour
 
 		if (combo >= 2)
 			Combo.text = "x" + combo + "!";
-		
 	}
 
 	public void addExtraLife()
@@ -108,6 +107,10 @@ public class gameManager : MonoBehaviour
 			heartContainers[i].color = new Color(0, 0, 0);
 		}
 	}
+	
+	public void increaseChaos() {
+		chaosBarFill.fillAmount += 1/bomb.getMaxPressure(); 
+	}
 
 	// Call after adding life
 	public void playerHealed() {
@@ -119,9 +122,6 @@ public class gameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (chaosBarFill.fillAmount < 1)
-			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime * bomb.getPressureLevel();
-		
 		if(Input.GetAxis("Pause") != 0 || Input.GetKeyDown(KeyCode.Escape)) {
 			if( gamePaused)
 				Resume();

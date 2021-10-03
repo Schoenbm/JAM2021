@@ -35,7 +35,7 @@ public class Enemy : Animal
 	public void Die(){
 		if(Random.Range(0,100) > probabilityDrop)
 		{
-			Instantiate(DropPrefab, this.gameObject.transform.position, this.transform.rotation);
+			Instantiate(DropPrefab, this.gameObject.transform.position, Quaternion.identity);
 		}
 		spawner.spawnedEnemyDied();
 		gm.enemyKilled();
