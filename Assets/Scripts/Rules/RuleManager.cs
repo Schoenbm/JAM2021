@@ -19,9 +19,19 @@ public class RuleManager : MonoBehaviour
 	private void setNewRule()
 	{
 		gameManager gm = GameObject.Find("GameManager").GetComponent<gameManager>();
+		string previousRule = activeRule?.getName();
 		
 		ruleDuration = Random.Range(minSeconds, maxSeconds);
 		activeRule = rules[Random.Range(0, rules.Count)];
+		
+		if (activeRule != null)
+		{
+			while (activeRule.getName() == previousRule)
+			{
+				activeRule = rules[Random.Range(0, rules.Count)];
+			}
+		}
+		
 		gm.setRuleName(this.activeRuleName());
 		gm.setDescName(this.activeRuleDescription());
 
