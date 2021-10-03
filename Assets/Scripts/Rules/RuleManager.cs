@@ -24,7 +24,7 @@ public class RuleManager : MonoBehaviour
 		ruleDuration = Random.Range(minSeconds, maxSeconds);
 		activeRule = rules[Random.Range(0, rules.Count)];
 		
-		if (activeRule != null)
+		if (activeRule != null && rules.Count > 1)
 		{
 			while (activeRule.getName() == previousRule)
 			{

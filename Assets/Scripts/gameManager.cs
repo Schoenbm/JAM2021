@@ -75,7 +75,7 @@ public class gameManager : MonoBehaviour
 	void Update()
 	{
 		if (chaosBarFill.fillAmount < 1)
-			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime *bomb.getPressureLevel();
+			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime * bomb.getPressureLevel();
 		
 		if(Input.GetAxis("Pause") != 0 || Input.GetKeyDown(KeyCode.Escape)) {
 			if( gamePaused)
