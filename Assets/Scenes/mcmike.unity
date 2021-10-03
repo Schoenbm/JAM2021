@@ -519,6 +519,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3839846611987312863, guid: 827992bd9955c8345a35e70c8a7526a5, type: 3}
   m_PrefabInstance: {fileID: 3839846612134441469}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &386005153 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4721841764499028061, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
+  m_PrefabInstance: {fileID: 4953246158617637702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &512459490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1470,6 +1475,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 2015779287}
+    - target: {fileID: 4953246158617637712, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
+      propertyPath: GameOverCanvas
+      value: 
+      objectReference: {fileID: 386005153}
     - target: {fileID: 5844693469584360753, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
       propertyPath: m_RootOrder
       value: 9
