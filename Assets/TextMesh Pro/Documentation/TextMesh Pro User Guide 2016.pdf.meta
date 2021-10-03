@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 <<<<<<< HEAD:Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
 guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
 DefaultImporter:
@@ -6,6 +7,10 @@ DefaultImporter:
 guid: 08f3a2faaa2ecdc41bbb6a004b13f8c2
 PrefabImporter:
 >>>>>>> 912a59aa3f0c0a5ae17a6d11e610969efe35439d:Assets/Prefabs/Bomb.prefab.meta
+=======
+guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
+DefaultImporter:
+>>>>>>> Stashed changes
   externalObjects: {}
   userData: 
   assetBundleName: 
