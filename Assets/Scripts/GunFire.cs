@@ -17,6 +17,8 @@ public class GunFire : MonoBehaviour
 	private bool constantShooting = false;
 	private bool rr = false;
 	
+	private AudioSource audioSrc;
+	
 	public void setConstantShooting(bool constantShooting)
 	{
 		this.constantShooting = constantShooting;
@@ -35,7 +37,8 @@ public class GunFire : MonoBehaviour
 	}
     IEnumerator Shoot() 
     {
-        canShoot = false;
+	    canShoot = false;
+	    //audioSrc.Play();
 	    Instantiate(bulletObj, gunpoint.transform.position, this.transform.rotation);
         yield return new WaitForSeconds(rateOfFire);
         canShoot = true;

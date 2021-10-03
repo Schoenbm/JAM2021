@@ -29,6 +29,7 @@ public class Player : Animal
 	public float dashInvulnerabilityFrame = 0.5f;
 	private bool canDash = true;
 
+	public Sprite[] spriteChange;
     public GameObject dashParticlesPrefab;
 	GameObject dashParticlesInstance;
     
@@ -139,7 +140,7 @@ public class Player : Animal
     // Checks if standing on a platform (use "Platform" layer on every jumpable gameobject)
     bool isGrounded()
     {
-	    float rayOffset = 0.25f;
+	    float rayOffset = 0.6f;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, boxCollider.bounds.extents.y + rayOffset, LayerMask.GetMask("Platform"));
         return hit.collider != null;
     }
@@ -151,8 +152,8 @@ public class Player : Animal
 	public void setDash(bool b){
 		canDash = b;
 	}
-    
-	override public void Die(){
-		gm.GameOver();
+
+    override public void Die(){
+        gm.GameOver();
 	}
 }

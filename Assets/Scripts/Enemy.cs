@@ -21,6 +21,7 @@ public class Enemy : Animal
 		if (collision.transform.tag == "Player"){
 			collision.gameObject.GetComponent<Player>().GetHit(strength * gm.DamageModifier, this.transform.position, knockback);
 			gm.playerHit();
+			Debug.Log(this.gameObject.name + " hit player");
 		}
 	}
 	

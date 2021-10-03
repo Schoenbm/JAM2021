@@ -48,6 +48,7 @@ public class Bomb : MonoBehaviour
 	    	}
 	    }
 	    else {
+	    	FindObjectOfType<AudioManager>().Play("Explosion");
 	    	gm.GameOver();
 	    }
     }
