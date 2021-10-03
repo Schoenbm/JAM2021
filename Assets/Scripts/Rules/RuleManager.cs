@@ -19,9 +19,9 @@ public class RuleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
 	{
-		rules.Add(new Gravity());
-		Debug.Log("hola");
-	    rules.Add(new InfiniteJumps());
+		//rules.Add(new Gravity());
+		//rules.Add(new InfiniteJumps());
+		rules.Add(new CantJump());
         // TODO: Add all rules to list
 		
         ruleDuration = Random.Range(minSeconds, maxSeconds);
