@@ -40,11 +40,6 @@ public class gameManager : MonoBehaviour
 	{
 		PauseMenu.enabled= false;
 		gamePaused = false;
-		
-	}
-	
-	void Start()
-	{
 		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		score = 0;
 		combo = 0;
