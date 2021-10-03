@@ -49,6 +49,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1772781237
+    locked: 0
+  - name: Plateform
+    uniqueID: 3906283951
+    locked: 0
+  - name: drops
+    uniqueID: 376505519
+    locked: 0
   - name: gun
     uniqueID: 2715013505
     locked: 0

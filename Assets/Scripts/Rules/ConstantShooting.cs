@@ -9,7 +9,7 @@ public class ConstantShooting : Rule
 	public ConstantShooting()
 	{
 		this.ruleName = "Constant Shooting";
-		this.description = "You gun won't stop shooting!";
+		this.description = "Your gun won't stop shooting!";
 		
 		JamesGunn = GameObject.FindGameObjectWithTag("Gun");
 	}

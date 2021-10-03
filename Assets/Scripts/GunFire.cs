@@ -19,6 +19,11 @@ public class GunFire : MonoBehaviour
 	{
 		this.constantShooting = constantShooting;
 	}
+
+	public void setRecoil(float recoilValue)
+	{
+		this.recoil = recoilValue;
+	}
 	
 	void Start(){
 		faceRight = true;
