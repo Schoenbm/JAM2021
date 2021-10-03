@@ -15,7 +15,7 @@ public class Player : Animal
 	public float jumpForce = 0.5f;
 	public float fallMultiplier = 2.5f;
 	public float lowJumpMultiplier = 5f;
-    int maxJumps = 1;
+	int maxJumps = 1;
     int jumpsLeft = 1;
     bool isJumpPressed;
 
@@ -139,8 +139,11 @@ public class Player : Animal
         return hit.collider != null;
     }
     
-	override
-	public void Die(){
+	public void setMaxJumps(int jumps){
+		maxJumps = jumps;
+	}
+    
+	override public void Die(){
 		gm.GameOver();
 	}
 }
