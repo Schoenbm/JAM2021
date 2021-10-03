@@ -33,7 +33,9 @@ public class Enemy : Animal
 	override
 	public void Die(){
 		if(Random.Range(0,100) > probabilityDrop)
+		{
 			Instantiate(DropPrefab, this.gameObject.transform.position, this.transform.rotation);
+		}
 		spawner.spawnedEnemyDied();
 		gm.enemyKilled();
 		Destroy(this.gameObject);
