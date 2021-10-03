@@ -41,10 +41,11 @@ public class RuleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
 	{
-		rules.Add(new Gravity());
-		rules.Add(new InfiniteJumps());
-		rules.Add(new CantJump());
-		rules.Add(new ConstantShooting());
+		//rules.Add(new Gravity());
+		//rules.Add(new InfiniteJumps());
+		//rules.Add(new CantJump());
+		//rules.Add(new ConstantShooting());
+		rules.Add(new FlipRoom());
         // TODO: Add all rules to list
 		
 		setNewRule();
@@ -55,19 +56,18 @@ public class RuleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-	    timer += Time.deltaTime;
-
+        timer += Time.deltaTime;
+	    Debug.Log(ruleDuration);
         if (timer >= ruleDuration)
         {
         	
-        	float chaosTimeModifier = 1 - chaosBarFill.GetComponent<Image>().fillAmount;
+        	//float chaosTimeModifier = 1 - chaosBarFill.GetComponent<Image>().fillAmount;
         	
-            timer = 0.0f;
-	        Debug.Log(activeRule.getName());
+	        timer = 0.0f;
             activeRule.removeRule(); // remove current rule
 
 	        setNewRule();
+	        Debug.Log(activeRule.getName());
         }
     }
    

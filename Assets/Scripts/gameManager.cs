@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -10,7 +11,8 @@ public class gameManager : MonoBehaviour
 	int score;
 	int combo;
 	int killingSpree;
-
+	bool gamePaused;
+	
 	int currentLife;
 	private Player player;
 	public GameObject playerPrefab;
@@ -24,11 +26,21 @@ public class gameManager : MonoBehaviour
 	public List<Image> heartContainers;
 	public TextMeshProUGUI Score;
 	public TextMeshProUGUI Combo;
+	public Canvas PauseMenu;
 	
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
 		player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
+	}
+	
+	
+	
+	void Start()
+	{
+		PauseMenu.enabled= false;
+		gamePaused = false;
+		
 	}
 	
 	void Start()
@@ -37,6 +49,7 @@ public class gameManager : MonoBehaviour
 		score = 0;
 		combo = 0;
 		currentLife = player.totalHealthPoints;
+		bomb.setSpawnPoint(spawnPoint.transform.position); // set respawn point in case of player falling down in bomb
 	}
 
 	public void setRuleName(string name)
@@ -66,31 +79,61 @@ public class gameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		currentLife = player.getCurrentHealth();
-		
 		if (chaosBarFill.fillAmount < 1)
-			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime;
+			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime *bomb.getPressureLevel();
 		
+		if(Input.GetAxis("Pause") != 0 || Input.GetKeyDown(KeyCode.Escape)) {
+			if( gamePaused)
+				Resume();
+			else
+				Pause();
+		}
 		
 		Score.text = "score: "+score;
+		//Score.text = currentLife + " ----> " + player.getCurrentHealth();
 		if (combo >= 2)
 			Combo.text = "x" + combo + "!";
-			if (currentLife < player.getCurrentHealth())
+		else
+			Combo.text = "";
+		
+		if (currentLife < player.getCurrentHealth())
+		{
+			//Debug.Log("Player healed seen");
+			for (int i = currentLife; i < player.getCurrentHealth() && i < heartContainers.Count; i++)
 			{
-				for (int i = currentLife; i < player.getCurrentHealth() && i < heartContainers.Count; i++)
-				{
-					heartContainers[i].color = new Color(1, 1, 1);
-				}
+				heartContainers[i].color = new Color(1, 1, 1);
+				currentLife = player.getCurrentHealth();
 			}
-			else if (currentLife > player.getCurrentHealth())
+		}
+		else if (currentLife > player.getCurrentHealth())
+		{
+			this.combo = 0;
+			this.killingSpree = 0;
+			//Debug.Log("Player hurt seen :" + combo);
+			for (int i = player.getCurrentHealth(); i < currentLife && i < heartContainers.Count; i++)
 			{
-				for (int i = player.getCurrentHealth(); i < currentLife && i < heartContainers.Count; i++)
-				{
-						heartContainers[i].color = new Color(0, 0, 0);
-				}
+				heartContainers[i].color = new Color(0, 0, 0);
+				currentLife = player.getCurrentHealth();
 			}
-		currentLife = player.getCurrentHealth();
+		}
+
 	}
-	
+	public void Pause(){
+		PauseMenu.enabled = true;
+		Time.timeScale = 0f;
+		gamePaused = true;
+	}
+	public void Resume()
+	{
+		PauseMenu.enabled = false;
+		Time.timeScale = 1f;
+		gamePaused = false;
+	}
+	public void Menu(){
+		SceneManager.LoadScene(0);
+	}
+	public void Quit(){
+		Application.Quit();
+	}
 	public void GameOver(){}
 }
