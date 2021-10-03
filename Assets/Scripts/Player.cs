@@ -29,6 +29,7 @@ public class Player : Animal
 	public float dashInvulnerabilityFrame = 0.5f;
 	private bool canDash = true;
 
+	public Sprite[] spriteChange;
     public GameObject dashParticlesPrefab;
 	GameObject dashParticlesInstance;
     
@@ -151,8 +152,8 @@ public class Player : Animal
 	public void setDash(bool b){
 		canDash = b;
 	}
-    
-	override public void Die(){
-		gm.GameOver();
+
+    override public void Die(){
+        gm.GameOver();
 	}
 }

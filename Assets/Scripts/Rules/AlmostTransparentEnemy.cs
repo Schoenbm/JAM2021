@@ -7,7 +7,6 @@ public class AlmostTransparentEnemy : Rule
 	private GameObject[] enemies;
 	Color color;
 	Color og;
-	bool exit = false;
 	public AlmostTransparentEnemy(){
 		this.ruleName = "Invisible";
 		this.description = "Where did you go?";
