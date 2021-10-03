@@ -24,7 +24,7 @@ public class RuleManager : MonoBehaviour
 		ruleDuration = Random.Range(minSeconds, maxSeconds);
 		activeRule = rules[Random.Range(0, rules.Count)];
 		
-		if (activeRule != null)
+		if (activeRule != null && rules.Count > 1)
 		{
 			while (activeRule.getName() == previousRule)
 			{
@@ -45,7 +45,9 @@ public class RuleManager : MonoBehaviour
 		//rules.Add(new InfiniteJumps());
 		//rules.Add(new CantJump());
 		//rules.Add(new ConstantShooting());
-		rules.Add(new FlipRoom());
+		//rules.Add(new AlmostTransparent());
+		// BROKEN rules.Add(new AlmostTransparentEnemy());
+		//rules.Add(new FlipRoom());
         // TODO: Add all rules to list
 		
 		setNewRule();

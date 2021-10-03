@@ -26,6 +26,7 @@ public class Player : Animal
     float coolDownDash = 0.0f;
 	public float dashForce = 2f;
 	public float dashInvulnerabilityFrame = 0.5f;
+	private bool canDash = true;
 
     public GameObject dashParticlesPrefab;
 	GameObject dashParticlesInstance;
@@ -117,7 +118,7 @@ public class Player : Animal
         // Dash
         coolDownDash += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && coolDownDash > coolDownDashMax)
+	    if (Input.GetKeyDown(KeyCode.LeftShift) && coolDownDash > coolDownDashMax && canDash)
         {
         	coolDownDash = 0f;
             dashParticlesInstance.transform.position = transform.position;
@@ -144,6 +145,10 @@ public class Player : Animal
     
 	public void setMaxJumps(int jumps){
 		maxJumps = jumps;
+	}
+    
+	public void setDash(bool b){
+		canDash = b;
 	}
     
 	override public void Die(){

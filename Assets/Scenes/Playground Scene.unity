@@ -381,6 +381,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3839846611987312863, guid: 827992bd9955c8345a35e70c8a7526a5, type: 3}
   m_PrefabInstance: {fileID: 176975724}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &180441142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 947740510140361573, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+  m_PrefabInstance: {fileID: 1176202458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1578ae8bde822974bb4c2b97eeb5d108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &255787298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3839846611987312863, guid: 827992bd9955c8345a35e70c8a7526a5, type: 3}
@@ -924,6 +935,63 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &1176202458
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 947740510140361572, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_Name
+      value: Bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 947740510140361575, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 947740510140361575, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 947740510140361575, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 947740510140361575, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.051115
+      objectReference: {fileID: 0}
+    - target: {fileID: 947740510140361575, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 947740510140361575, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 947740510140361575, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 947740510140361575, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 947740510140361575, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 947740510140361575, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 947740510140361575, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e3ade48489e6244e8951eaf2b956911, type: 3}
 --- !u!1 &1213699514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1268,7 @@ GameObject:
   - component: {fileID: 1435396121}
   m_Layer: 0
   m_Name: Scenary
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1228,6 +1296,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 564567572881978896, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0009765625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953246158617637712, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
+      propertyPath: bomb
+      value: 
+      objectReference: {fileID: 180441142}
     - target: {fileID: 4953246158617637712, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
       propertyPath: spawnPoint
       value: 
