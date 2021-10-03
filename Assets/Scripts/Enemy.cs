@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : Animal
 {
+	[Range(0,100)] public int probabilityDrop;
 	public int strength;
 	public float knockback;
 	protected Rigidbody2D rb;
@@ -31,7 +32,8 @@ public class Enemy : Animal
 	
 	override
 	public void Die(){
-		Instantiate(DropPrefab, this.gameObject.transform.position, this.transform.rotation);
+		if(Random.Range(0,100) > probabilityDrop)
+			Instantiate(DropPrefab, this.gameObject.transform.position, this.transform.rotation);
 		spawner.spawnedEnemyDied();
 		gm.enemyKilled();
 		Destroy(this.gameObject);

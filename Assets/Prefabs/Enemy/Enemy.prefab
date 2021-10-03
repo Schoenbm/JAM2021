@@ -218,6 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealthPoints: 7
   invulnerabilityFrame: 0
+  probabilityDrop: 24
   strength: 1
   knockback: 600
   spawner: {fileID: 0}
