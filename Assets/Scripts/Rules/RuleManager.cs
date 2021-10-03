@@ -49,20 +49,22 @@ public class RuleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
 	{
-		//rules.Add(new Nothing());
-		//rules.Add(new Gravity());
-		//rules.Add(new InfiniteJumps());
-		//rules.Add(new CantJump());
-		//rules.Add(new ConstantShooting());
-		//rules.Add(new DoubleDamage());
-		//rules.Add(new AlmostTransparent());
-		//BROKEN rules.Add(new AlmostTransparentEnemy());
-		//rules.Add(new RoussianRoulette());
-		//rules.Add(new FlipRoom());
-		//rules.Add(new InvertControls()); //assuming just the movement keys are inverted
-		//rules.Add(new PowerfulRecoil());
-		//rules.Add(new ChangeSkin());
 		rules.Add(new SpeedChange());
+		rules.Add(new Invincible());
+		rules.Add(new Nothing());
+		rules.Add(new Gravity());
+		rules.Add(new InfiniteJumps());
+		rules.Add(new CantJump());
+		rules.Add(new ConstantShooting());
+		rules.Add(new DoubleDamage());
+		rules.Add(new AlmostTransparent());
+		//BROKEN rules.Add(new AlmostTransparentEnemy());
+		rules.Add(new RoussianRoulette());
+		rules.Add(new FlipRoom());
+		rules.Add(new Shaking());
+		rules.Add(new InvertControls()); //assuming just the movement keys are inverted
+		rules.Add(new PowerfulRecoil());
+		rules.Add(new ChangeSkin());
         // TODO: Add all rules to list
 		
 		activeRule = new Nothing();

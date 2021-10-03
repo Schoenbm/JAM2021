@@ -37,6 +37,8 @@ public class Player : Animal
     public int getMaxHealth() {return totalHealthPoints;}
 	public int getCurrentHealth(){return currentHealthPoints;}
 	
+	public bool isInvincible  {get; set;}
+	
     // Start is called before the first frame update
     void Start()
 	{
@@ -46,7 +48,6 @@ public class Player : Animal
         boxCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         dashParticlesInstance = Instantiate(dashParticlesPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-
         setGm(FindObjectOfType<gameManager>());
     }
 

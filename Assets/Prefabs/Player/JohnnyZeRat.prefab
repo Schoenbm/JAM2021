@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4202398283583751314}
   - component: {fileID: 4202398283583751315}
   - component: {fileID: 4202398283583751312}
+  - component: {fileID: 7328560478472854205}
   m_Layer: 7
   m_Name: JohnnyZeRat
   m_TagString: Player
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1869117065
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7f04b8f84b40c4f4696ac73c386e8695, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalHealthPoints: 3
+  animalMaterial: {fileID: 2100000, guid: 46d0acd28a6a6354ca2a9af5e8b63c6f, type: 2}
   invulnerabilityFrame: 1.5
   smoothing: 0.036
   speed: 8
@@ -159,6 +161,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8571101, y: 2.0607338}
   m_EdgeRadius: 0
+--- !u!114 &7328560478472854205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4202398283583751319}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27335aac0d2cbb94daa7ce1cd34ca47c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4202398283224640200
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1263,6 +1263,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 924006653}
     - target: {fileID: 4953246158617637712, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 2004040445}
+    - target: {fileID: 4953246158617637712, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1551925270}
@@ -1317,6 +1321,14 @@ PrefabInstance:
     - target: {fileID: 6303415747626716191, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334799535045353430, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1918433536}
+    - target: {fileID: 7334799535045353430, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 8275157966318998957, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
       propertyPath: m_IsActive
@@ -2589,6 +2601,8 @@ GameObject:
   - component: {fileID: 2004040446}
   - component: {fileID: 2004040445}
   - component: {fileID: 2004040444}
+  - component: {fileID: 2004040447}
+  - component: {fileID: 2004040448}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2661,6 +2675,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!169 &2004040447
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004040443}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.22727273
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2004040448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004040443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a44d5000c0ff145ac6c4d8a87fd454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: 1
 --- !u!1001 &2108457640
 PrefabInstance:
   m_ObjectHideFlags: 0
