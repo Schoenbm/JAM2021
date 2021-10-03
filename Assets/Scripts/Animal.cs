@@ -20,7 +20,7 @@ public abstract class Animal : MonoBehaviour
 		currentHealthPoints -= pStr;
 		Rigidbody2D rb = GetComponent<Rigidbody2D>();
 		rb.AddForce((this.transform.position - pCoordObjHit).normalized * pKnockback);
-		Debug.Log("healthpoints =" + currentHealthPoints + " entity is:" + this.tag);
+		//Debug.Log("healthpoints =" + currentHealthPoints + " entity is:" + this.tag);
 		if(currentHealthPoints <= 0)
 			this.Die();
 		else StartCoroutine(Hit());
