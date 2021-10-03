@@ -103,7 +103,7 @@ public class Player : Animal
         if (canMove)
         {
 	        float movement = Input.GetAxis("Horizontal") * horizontalSpeed;
-	        Vector3 targetVelocity = new Vector2(movement * Inverted, rb.velocity.y);
+	        Vector3 targetVelocity = new Vector2(movement * gm.SpeedModifier * Inverted, rb.velocity.y);
             // And then smoothing it out and applying it to the character
 	        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref vectorZero , smoothing);
         }
