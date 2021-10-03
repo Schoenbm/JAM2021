@@ -7,38 +7,23 @@ public class Gravity : Rule
     private GameObject player;
     private GameObject[] enemies;
 
-    private float playerBaseGravity;
-    private float enemyBaseGravity;
+    private Vector2 baseGravity;
 
     public Gravity()
     {
         this.ruleName = "Lower Gravity";
         this.description = "The gravity is now reduced";
 
-        player = GameObject.FindGameObjectWithTag("Player");
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        playerBaseGravity = player.GetComponent<Rigidbody2D>().gravityScale;
-	    //enemyBaseGravity = enemies[0].GetComponent<Rigidbody2D>().gravityScale;
+        baseGravity = Physics2D.gravity;
     }
 
     public override void applyRule()
     {
-        player.GetComponent<Rigidbody2D>().gravityScale = 1;
-
-        foreach (GameObject e in enemies)
-        {
-            e.GetComponent<Rigidbody2D>().gravityScale = 1;
-        }
+        Physics2D.gravity = new Vector2(Physics2D.gravity.x, Physics2D.gravity.y/2);
     }
 
     public override void removeRule()
     {
-        player.GetComponent<Rigidbody2D>().gravityScale = playerBaseGravity;
-
-        foreach (GameObject e in enemies)
-        {
-            e.GetComponent<Rigidbody2D>().gravityScale = enemyBaseGravity;
-        }
+        Physics2D.gravity = baseGravity;
     }
 }
