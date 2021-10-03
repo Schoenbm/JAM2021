@@ -14,6 +14,7 @@ public abstract class Animal : MonoBehaviour
 	public void Awake(){
 		currentHealthPoints = totalHealthPoints;
 	}
+	
 	public void GetHit(int pStr, Vector3 pCoordObjHit, float pKnockback){
 		if(invulnerable)
 			return;
