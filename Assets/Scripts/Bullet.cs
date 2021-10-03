@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
 	    print("Collision with: " + collision.transform.name);
 	    if(!collision.transform.CompareTag(this.gameObject.tag)){
 		    Animal target = collision.GetComponent<Animal>();
-		    if(target)
+		    if(target != null)
 		    	target.GetHit(damage, this.transform.position, knockback);
 		    Destroy(this.gameObject);
 	    }

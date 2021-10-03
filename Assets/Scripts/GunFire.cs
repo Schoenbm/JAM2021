@@ -17,6 +17,7 @@ public class GunFire : MonoBehaviour
 	void Start(){
 		faceRight = true;
 		this.gameObject.GetComponentInParent<Rigidbody2D>();
+		gameCamera = FindObjectOfType<Camera>();
 	}
     IEnumerator Shoot() 
     {
