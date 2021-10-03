@@ -76,7 +76,9 @@ public class gameManager : MonoBehaviour
 		player.totalHealthPoints += 1;
 		heartContainers[player.totalHealthPoints].color = new Color(1, 1, 1);
 	}
-
+	
+	public void BreakCombo(){combo = 0;}
+	
 	// Call after subtracting life
 	public void playerHit()
 	{

@@ -43,6 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6122fc62278194a835bd4ec9238766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyObj: {fileID: 4215599612503139431, guid: 4999b6e7528d32741a4ab8061b59b279, type: 3}
+  gm: {fileID: 0}
+  enemylist:
+  - {fileID: 4215599612503139431, guid: 4999b6e7528d32741a4ab8061b59b279, type: 3}
+  - {fileID: 4215599612503139431, guid: 4999b6e7528d32741a4ab8061b59b279, type: 3}
+  - {fileID: 7975431478465433022, guid: bcdc332f5f1319a438e8872770e6c698, type: 3}
+  - {fileID: 7975431478465433022, guid: bcdc332f5f1319a438e8872770e6c698, type: 3}
+  - {fileID: 4215599612503139431, guid: 4999b6e7528d32741a4ab8061b59b279, type: 3}
+  - {fileID: 7186100761622852048, guid: c98cd013bee3a8b48b852094f6123fcc, type: 3}
   spawnsRemaining: 10
-  timeBetweenSpawns: 0.5
+  MaxTimeBetweenSpawns: 2
+  MinTimeBetweenSpawns: 1

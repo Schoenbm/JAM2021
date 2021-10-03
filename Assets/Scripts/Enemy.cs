@@ -6,12 +6,15 @@ public class Enemy : Animal
 {
 	public int strength;
 	public float knockback;
-	
+	protected Rigidbody2D rb;
 	protected float speed = 2.0f;
 	public SpawnEnemies spawner;
 	
 	public GameObject DropPrefab;
-
+	
+	void Start(){
+		rb = this.GetComponent<Rigidbody2D>();
+	}
     private void OnCollisionEnter2D(Collision2D collision) 
 	{
 		if (collision.transform.tag == "Player"){
@@ -36,6 +39,7 @@ public class Enemy : Animal
 	
 	public void Fall() {
 		spawner.spawnedEnemyDied();
+		gm.BreakCombo();
 		Destroy(this.gameObject);
 	}
 

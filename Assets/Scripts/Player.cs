@@ -32,14 +32,14 @@ public class Player : Animal
     public GameObject dashParticlesPrefab;
 	GameObject dashParticlesInstance;
     
-	private Vector3 vectorZero = new Vector3(0,0,0);
 
     public int getMaxHealth() {return totalHealthPoints;}
 	public int getCurrentHealth(){return currentHealthPoints;}
 	
     // Start is called before the first frame update
     void Start()
-    {
+	{
+		Inverted = 1;
         canMove = true;
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();

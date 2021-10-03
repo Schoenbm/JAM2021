@@ -10,7 +10,7 @@ public class InvertControls : Rule
 	{
 		player = GameObject.Find("JohnnyZeRat(Clone)");
 		
-		this.ruleName = "Inverte controls";
+		this.ruleName = "Inverted controls";
 		this.description = "Your controls are inverted!";
 	}
 	
