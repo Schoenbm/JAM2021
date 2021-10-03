@@ -34,6 +34,7 @@ public abstract class Animal : MonoBehaviour
 		if(currentHealthPoints< totalHealthPoints)
 			currentHealthPoints += p;
 	}
+
 	
 	abstract public void Die();
 	
