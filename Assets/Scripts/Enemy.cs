@@ -23,6 +23,7 @@ public class Enemy : Animal
 	public void hitPlayer(Collider2D collision){
 		if (collision.transform.tag == "Player"){
 			collision.gameObject.GetComponent<Player>().GetHit(strengh, this.transform.position, knockback);
+			gm.playerHit();
 		}
 	}
 	
