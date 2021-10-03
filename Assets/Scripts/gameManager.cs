@@ -131,5 +131,9 @@ public class gameManager : MonoBehaviour
 	public void Quit(){
 		Application.Quit();
 	}
+	
+	public Player getPlayer(){
+		return this.player;
+	}
 	public void GameOver(){}
 }

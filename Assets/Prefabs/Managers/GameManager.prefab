@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7119e5c192f8ca4a81b8c3a49018150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minSeconds: 5
+  maxSeconds: 15
 --- !u!1 &6303415747626716191
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +234,14 @@ PrefabInstance:
     - target: {fileID: 7946904541448487891, guid: bb7931ebef1d0a14da8ad6f3ef47ea95, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116331497666097786, guid: bb7931ebef1d0a14da8ad6f3ef47ea95, type: 3}
+      propertyPath: m_text
+      value: 'score: 0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116331497666097786, guid: bb7931ebef1d0a14da8ad6f3ef47ea95, type: 3}
+      propertyPath: m_fontSize
+      value: 44.05
       objectReference: {fileID: 0}
     - target: {fileID: 8217673757721167977, guid: bb7931ebef1d0a14da8ad6f3ef47ea95, type: 3}
       propertyPath: m_text
@@ -443,6 +453,10 @@ PrefabInstance:
     - target: {fileID: 1628358438092630051, guid: 1161e64ce66be1a45a4e78d01a09175e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161982807179583969, guid: 1161e64ce66be1a45a4e78d01a09175e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0009765625
       objectReference: {fileID: 0}
     - target: {fileID: 3416551155632070281, guid: 1161e64ce66be1a45a4e78d01a09175e, type: 3}
       propertyPath: m_Pivot.x
