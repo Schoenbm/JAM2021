@@ -40,6 +40,12 @@ public class gameManager : MonoBehaviour
 		combo = (int)Mathf.Sqrt(killingSpree);
 		score += combo;
 		bomb.reducePressure();
+
+		Score.text = "score: "+score;
+
+		if(combo >= 2) {
+			Combo.text = "x" + combo + "!";
+		}
 	}
 
 	public void addExtraLife()
@@ -57,24 +63,21 @@ public class gameManager : MonoBehaviour
 			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime;
 		
 		
-		Score.text = "score: "+score;
-		if (combo >= 2)
-			Combo.text = "x" + combo + "!";
-			if (currentLife < player.getCurrentHealth())
+		if (currentLife < player.getMaxHealth())
+		{
+			for (int i = currentLife; i < player.getMaxHealth() && i < heartContainers.Count; i++)
 			{
-				for (int i = currentLife; i < player.getCurrentHealth() && i < heartContainers.Count; i++)
-				{
-					heartContainers[i].color = new Color(1, 1, 1);
-				}
+				heartContainers[i].color = new Color(1, 1, 1);
 			}
-			else if (currentLife > player.getCurrentHealth())
+		}
+		else if (currentLife > player.getMaxHealth())
+		{
+			for (int i = player.getCurrentHealth(); i < currentLife && i < heartContainers.Count; i++)
 			{
-				for (int i = player.getCurrentHealth(); i < currentLife && i < heartContainers.Count; i++)
-				{
-						heartContainers[i].color = new Color(0, 0, 0);
-				}
+					heartContainers[i].color = new Color(0, 0, 0);
 			}
-		currentLife = player.getCurrentHealth();
+		}
+			
 	}
 	
 	public void GameOver(){}
