@@ -63,6 +63,7 @@ public class Bomb : MonoBehaviour
 			Player p = col.GetComponent<Player>();
 			p.GetHit(1, Vector3.zero, 0);
 			p.transform.position = spawnpoint;
+			gm.playerHit();
 		}
 	}
 	

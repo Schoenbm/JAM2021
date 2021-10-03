@@ -57,14 +57,16 @@ public class RuleManager : MonoBehaviour
 		rules.Add(new DoubleDamage());
 		rules.Add(new AlmostTransparent());
 		//BROKEN rules.Add(new AlmostTransparentEnemy());
+		rules.Add(new RoussianRoulette());
 		rules.Add(new FlipRoom());
 		rules.Add(new InvertControls()); //assuming just the movement keys are inverted
 		rules.Add(new PowerfulRecoil());
+		rules.Add(new ChangeSkin());
         // TODO: Add all rules to list
 		
 		activeRule = new Nothing();
+		activeRule.applyRule();
 		ruleDuration = maxSeconds;
-        
 	    
     }
 
