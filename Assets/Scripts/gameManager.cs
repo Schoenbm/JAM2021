@@ -10,7 +10,8 @@ public class gameManager : MonoBehaviour
 	int score;
 	int combo;
 	int killingSpree;
-
+	bool gamePaused;
+	
 	int currentLife;
 	private Player player;
 	public GameObject playerPrefab;
@@ -24,9 +25,12 @@ public class gameManager : MonoBehaviour
 	public List<Image> heartContainers;
 	public TextMeshProUGUI Score;
 	public TextMeshProUGUI Combo;
-
+	
+	public Canvas PauseMenu;
 	void Start()
 	{
+		PauseMenu.enabled= false;
+		gamePaused = false;
 		player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
 		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		score = 0;
@@ -55,6 +59,12 @@ public class gameManager : MonoBehaviour
 		if (chaosBarFill.fillAmount < 1)
 			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime *bomb.getPressureLevel();
 		
+		if(Input.GetAxis("Pause")){
+			if( gamePaused)
+				Resume();
+			else
+				Pause();
+		}
 		
 		Score.text = "score: "+score;
 		//Score.text = currentLife + " ----> " + player.getCurrentHealth();
@@ -85,6 +95,20 @@ public class gameManager : MonoBehaviour
 		}
 
 	}
-	
+	public void Pause(){
+		PauseMenu.enabled = true;
+		Time.timeScale = 0f;
+		gamePaused = true;
+	}
+	public void Resume()
+	{
+		PauseMenu.enabled = false;
+		Time.timeScale = 1f;
+		gamePaused = false;
+	}
+	public void Menu(){
+		
+	}
+	public void Quit(){}
 	public void GameOver(){}
 }
