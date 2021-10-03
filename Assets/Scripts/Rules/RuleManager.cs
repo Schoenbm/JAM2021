@@ -19,15 +19,17 @@ public class RuleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
 	{
-		rules.Add(new Gravity());
+		//rules.Add(new Gravity());
 		//rules.Add(new InfiniteJumps());
 		//rules.Add(new CantJump());
-		rules.Add(new FlipRoom());
+		//rules.Add(new FlipRoom());
+		//rules.Add(new CantDash());
+		//rules.Add(new Nothing());
+		rules.Add(new AlmostTransparent());
+		rules.Add(new AlmostTransparentEnemy());
         // TODO: Add all rules to list
-		Debug.Log(rules.Count);
         ruleDuration = Random.Range(minSeconds, maxSeconds);
 		activeRule = rules[Random.Range(0, rules.Count)];
-
 	    activeRule.applyRule();
         
 	    chaosBarFill = GameObject.Find("Fill");

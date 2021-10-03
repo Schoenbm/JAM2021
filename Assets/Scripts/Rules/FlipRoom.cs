@@ -20,7 +20,7 @@ public class FlipRoom : Rule
 	public override void applyRule(){
 		room.transform.localScale = new Vector3(-1,1,1);
 		player.transform.position = new Vector3(-player.transform.position.x,player.transform.position.y,player.transform.position.z);
-		enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		
 		foreach (GameObject e in enemies)
 		{
 			e.transform.position = new	Vector3(-e.transform.position.x,e.transform.position.y,e.transform.position.z);
