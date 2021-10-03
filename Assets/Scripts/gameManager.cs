@@ -32,6 +32,7 @@ public class gameManager : MonoBehaviour
 		score = 0;
 		combo = 0;
 		currentLife = player.totalHealthPoints;
+		bomb.setSpawnPoint(spawnPoint.transform.position); // set respawn point in case of player falling down in bomb
 	}
 
 	public void enemyKilled()
@@ -51,30 +52,38 @@ public class gameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		currentLife = player.getCurrentHealth();
-		
 		if (chaosBarFill.fillAmount < 1)
-			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime;
+			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime *bomb.getPressureLevel();
 		
 		
 		Score.text = "score: "+score;
+		//Score.text = currentLife + " ----> " + player.getCurrentHealth();
 		if (combo >= 2)
 			Combo.text = "x" + combo + "!";
-			if (currentLife < player.getCurrentHealth())
+		else
+			Combo.text = "";
+		
+		if (currentLife < player.getCurrentHealth())
+		{
+			//Debug.Log("Player healed seen");
+			for (int i = currentLife; i < player.getCurrentHealth() && i < heartContainers.Count; i++)
 			{
-				for (int i = currentLife; i < player.getCurrentHealth() && i < heartContainers.Count; i++)
-				{
-					heartContainers[i].color = new Color(1, 1, 1);
-				}
+				heartContainers[i].color = new Color(1, 1, 1);
+				currentLife = player.getCurrentHealth();
 			}
-			else if (currentLife > player.getCurrentHealth())
+		}
+		else if (currentLife > player.getCurrentHealth())
+		{
+			this.combo = 0;
+			this.killingSpree = 0;
+			//Debug.Log("Player hurt seen :" + combo);
+			for (int i = player.getCurrentHealth(); i < currentLife && i < heartContainers.Count; i++)
 			{
-				for (int i = player.getCurrentHealth(); i < currentLife && i < heartContainers.Count; i++)
-				{
-						heartContainers[i].color = new Color(0, 0, 0);
-				}
+				heartContainers[i].color = new Color(0, 0, 0);
+				currentLife = player.getCurrentHealth();
 			}
-		currentLife = player.getCurrentHealth();
+		}
+
 	}
 	
 	public void GameOver(){}
