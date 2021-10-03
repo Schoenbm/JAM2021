@@ -4,43 +4,28 @@ using UnityEngine;
 
 public class Enemy : Animal
 {
-	public int strength;
+	public int strengh;
 	public float knockback;
-	protected Rigidbody2D rb;
+	
 	protected float speed = 2.0f;
 	public SpawnEnemies spawner;
 	
 	public GameObject DropPrefab;
-	
-	void Start(){
-		rb = this.GetComponent<Rigidbody2D>();
-	}
+
+
     private void OnCollisionEnter2D(Collision2D collision) 
-	{
-		if (collision.transform.tag == "Player"){
-    		collision.gameObject.GetComponent<Player>().GetHit(strength * gm.DamageModifier, this.transform.position, knockback);
+    {
+    	if (collision.transform.tag == "Player"){
+    		collision.gameObject.GetComponent<Player>().GetHit(strengh, this.transform.position, knockback);
     	}
     }
 	
-	public void hitPlayer(Collider2D collision){
-		if (collision.transform.tag == "Player"){
-			collision.gameObject.GetComponent<Player>().GetHit(strength * gm.DamageModifier, this.transform.position, knockback);
-			gm.playerHit();
-		}
-	}
-	
 	override
 	public void Die(){
-		Instantiate(DropPrefab, this.gameObject.transform.position, this.transform.rotation);
+		Instantiate(DropPrefab, this.transform.position, Quaternion.identity);
 		spawner.spawnedEnemyDied();
-		gm.enemyKilled();
 		Destroy(this.gameObject);
-	}
-	
-	public void Fall() {
-		spawner.spawnedEnemyDied();
-		gm.BreakCombo();
-		Destroy(this.gameObject);
+
 	}
 
 }

@@ -9,10 +9,8 @@ public class DropLoot : MonoBehaviour
 		if(collider.CompareTag("Player")){
 			GameObject player = collider.gameObject;
 			player.GetComponent<Animal>().heal(1);
-			FindObjectOfType<gameManager>().playerHealed();
+			
 			Destroy(this.gameObject);
 		}
 	}
-	
-	
 }
