@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -10,7 +11,8 @@ public class gameManager : MonoBehaviour
 	int score;
 	int combo;
 	int killingSpree;
-
+	bool gamePaused;
+	
 	int currentLife;
 	private Player player;
 	public GameObject playerPrefab;
@@ -24,15 +26,35 @@ public class gameManager : MonoBehaviour
 	public List<Image> heartContainers;
 	public TextMeshProUGUI Score;
 	public TextMeshProUGUI Combo;
-
-	void Start()
+	public Canvas PauseMenu;
+	
+	// Awake is called when the script instance is being loaded.
+	protected void Awake()
 	{
 		player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
+	}
+	
+	
+	
+	void Start()
+	{
+		PauseMenu.enabled= false;
+		gamePaused = false;
 		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		score = 0;
 		combo = 0;
 		currentLife = player.totalHealthPoints;
 		bomb.setSpawnPoint(spawnPoint.transform.position); // set respawn point in case of player falling down in bomb
+	}
+
+	public void setRuleName(string name)
+	{
+		this.transform.Find("UI").Find("Rule Name").GetComponent<TextMeshProUGUI>().text = name;
+	}
+	
+	public void setDescName(string desc)
+	{
+		this.transform.Find("UI").Find("Rule desc").GetComponent<TextMeshProUGUI>().text = desc;
 	}
 
 	public void enemyKilled()
@@ -41,6 +63,12 @@ public class gameManager : MonoBehaviour
 		combo = (int)Mathf.Sqrt(killingSpree);
 		score += combo;
 		bomb.reducePressure();
+
+		Score.text = "score: "+score;
+
+		if (combo >= 2)
+			Combo.text = "x" + combo + "!";
+		
 	}
 
 	public void addExtraLife()
@@ -53,15 +81,16 @@ public class gameManager : MonoBehaviour
 	void Update()
 	{
 		if (chaosBarFill.fillAmount < 1)
-			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime *bomb.getPressureLevel();
+			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime * bomb.getPressureLevel();
+		
+		if(Input.GetAxis("Pause") != 0 || Input.GetKeyDown(KeyCode.Escape)) {
+			if( gamePaused)
+				Resume();
+			else
+				Pause();
+		}
 		
 		
-		Score.text = "score: "+score;
-		//Score.text = currentLife + " ----> " + player.getCurrentHealth();
-		if (combo >= 2)
-			Combo.text = "x" + combo + "!";
-		else
-			Combo.text = "";
 		
 		if (currentLife < player.getCurrentHealth())
 		{
@@ -75,6 +104,9 @@ public class gameManager : MonoBehaviour
 		else if (currentLife > player.getCurrentHealth())
 		{
 			this.combo = 0;
+
+			Combo.text = "";
+
 			this.killingSpree = 0;
 			//Debug.Log("Player hurt seen :" + combo);
 			for (int i = player.getCurrentHealth(); i < currentLife && i < heartContainers.Count; i++)
@@ -85,6 +117,22 @@ public class gameManager : MonoBehaviour
 		}
 
 	}
-	
+	public void Pause(){
+		PauseMenu.enabled = true;
+		Time.timeScale = 0f;
+		gamePaused = true;
+	}
+	public void Resume()
+	{
+		PauseMenu.enabled = false;
+		Time.timeScale = 1f;
+		gamePaused = false;
+	}
+	public void Menu(){
+		SceneManager.LoadScene(0);
+	}
+	public void Quit(){
+		Application.Quit();
+	}
 	public void GameOver(){}
 }
