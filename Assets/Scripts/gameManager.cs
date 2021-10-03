@@ -27,7 +27,9 @@ public class gameManager : MonoBehaviour
 	public List<Image> heartContainers;
 	public TextMeshProUGUI Score;
 	public TextMeshProUGUI Combo;
+	public TextMeshProUGUI ScoreGameOver;
 	public Canvas PauseMenu;
+	public Canvas GameOverCanvas;
 	
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
@@ -40,6 +42,7 @@ public class gameManager : MonoBehaviour
 	void Start()
 	{
 		PauseMenu.enabled= false;
+		GameOverCanvas.enabled = false;
 		gamePaused = false;
 		score = 0;
 		combo = 0;
@@ -88,8 +91,7 @@ public class gameManager : MonoBehaviour
 		Combo.text = "";
 
 		for(int i = player.getCurrentHealth(); i < player.getMaxHealth(); i++) {
-			if (i>=0)
-				heartContainers[i].color = new Color(0, 0, 0);
+			heartContainers[i].color = new Color(0, 0, 0);
 		}
 	}
 
@@ -131,9 +133,16 @@ public class gameManager : MonoBehaviour
 	public void Quit(){
 		Application.Quit();
 	}
-	
+
 	public Player getPlayer(){
 		return this.player;
 	}
-	public void GameOver(){}
+
+	public void GameOver()
+	{
+		Debug.Log("Your score was :" + score);
+		ScoreGameOver.text = "Your score: " + score;
+		Time.timeScale = 0f;
+		GameOverCanvas.enabled = true;
+	}
 }
