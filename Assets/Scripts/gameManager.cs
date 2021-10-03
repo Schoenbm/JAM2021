@@ -39,6 +39,16 @@ public class gameManager : MonoBehaviour
 		currentLife = player.totalHealthPoints;
 	}
 
+	public void setRuleName(string name)
+	{
+		this.transform.Find("UI").Find("Rule Name").GetComponent<TextMeshProUGUI>().text = name;
+	}
+	
+	public void setDescName(string desc)
+	{
+		this.transform.Find("UI").Find("Rule desc").GetComponent<TextMeshProUGUI>().text = desc;
+	}
+
 	public void enemyKilled()
 	{
 		killingSpree += 1;

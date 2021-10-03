@@ -16,19 +16,28 @@ public class RuleManager : MonoBehaviour
     
 	private GameObject chaosBarFill;
 
+	private void setNewRule()
+	{
+		gameManager gm = GameObject.Find("GameManager").GetComponent<gameManager>();
+		
+		ruleDuration = Random.Range(minSeconds, maxSeconds);
+		activeRule = rules[Random.Range(0, rules.Count-1)];
+		gm.setRuleName(this.activeRuleName());
+		gm.setDescName(this.activeRuleDescription());
+
+		activeRule.applyRule();
+	}
+
     // Start is called before the first frame update
     void Start()
 	{
 		//rules.Add(new Gravity());
 		//rules.Add(new InfiniteJumps());
-		//rules.Add(new CantJump());
+		rules.Add(new CantJump());
 		rules.Add(new ConstantShooting());
         // TODO: Add all rules to list
 		
-        ruleDuration = Random.Range(minSeconds, maxSeconds);
-        activeRule = rules[Random.Range(0, rules.Count-1)];
-
-	    activeRule.applyRule();
+		setNewRule();
         
 	    chaosBarFill = GameObject.Find("Fill");
     }
@@ -48,10 +57,7 @@ public class RuleManager : MonoBehaviour
 	        Debug.Log(activeRule.getName());
             activeRule.removeRule(); // remove current rule
 
-	        ruleDuration = Random.Range(minSeconds, maxSeconds) * chaosTimeModifier; // set new duration
-            activeRule = rules[Random.Range(0, rules.Count-1)]; // choose new active rule
-
-            activeRule.applyRule(); // start rule
+	        setNewRule();
         }
     }
    
