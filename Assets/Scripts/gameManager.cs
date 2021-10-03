@@ -63,6 +63,12 @@ public class gameManager : MonoBehaviour
 		combo = (int)Mathf.Sqrt(killingSpree);
 		score += combo;
 		bomb.reducePressure();
+
+		Score.text = "score: "+score;
+
+		if (combo >= 2)
+			Combo.text = "x" + combo + "!";
+		
 	}
 
 	public void addExtraLife()
@@ -84,12 +90,7 @@ public class gameManager : MonoBehaviour
 				Pause();
 		}
 		
-		Score.text = "score: "+score;
-		//Score.text = currentLife + " ----> " + player.getCurrentHealth();
-		if (combo >= 2)
-			Combo.text = "x" + combo + "!";
-		else
-			Combo.text = "";
+		
 		
 		if (currentLife < player.getCurrentHealth())
 		{
@@ -103,6 +104,9 @@ public class gameManager : MonoBehaviour
 		else if (currentLife > player.getCurrentHealth())
 		{
 			this.combo = 0;
+
+			Combo.text = "";
+
 			this.killingSpree = 0;
 			//Debug.Log("Player hurt seen :" + combo);
 			for (int i = player.getCurrentHealth(); i < currentLife && i < heartContainers.Count; i++)

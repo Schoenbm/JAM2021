@@ -32,7 +32,11 @@ public class Enemy : Animal
 		spawner.spawnedEnemyDied();
 		gm.enemyKilled();
 		Destroy(this.gameObject);
-
+	}
+	
+	public void Fall() {
+		spawner.spawnedEnemyDied();
+		Destroy(this.gameObject);
 	}
 
 }

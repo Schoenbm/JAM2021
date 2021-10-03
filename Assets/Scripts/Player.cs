@@ -32,6 +32,7 @@ public class Player : Animal
     
 	private Vector3 vectorZero = new Vector3(0,0,0);
 
+    public int getMaxHealth() {return totalHealthPoints;}
 	public int getCurrentHealth(){return currentHealthPoints;}
 	
     // Start is called before the first frame update
@@ -42,6 +43,8 @@ public class Player : Animal
         boxCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         dashParticlesInstance = Instantiate(dashParticlesPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+        setGm(FindObjectOfType<gameManager>());
     }
 
     // Update is called once per frame
