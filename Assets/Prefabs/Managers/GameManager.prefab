@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 4202398283583751319, guid: 0ef4807996d257845900c35757b52936, type: 3}
   spawnPoint: {fileID: 0}
+  camera: {fileID: 0}
   chaosBar: {fileID: 1158652351358386689}
   chaosFillSpeed: 0.01
   bomb: {fileID: 0}
@@ -508,6 +509,10 @@ PrefabInstance:
     - target: {fileID: 7946904541448487891, guid: 71545d20d213bcb4c9fbfedcc98168f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989810766812379300, guid: 71545d20d213bcb4c9fbfedcc98168f1, type: 3}
+      propertyPath: m_Interactable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8989810766812379300, guid: 71545d20d213bcb4c9fbfedcc98168f1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
