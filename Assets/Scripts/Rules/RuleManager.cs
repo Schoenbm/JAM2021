@@ -64,7 +64,9 @@ public class RuleManager : MonoBehaviour
 		rules.Add(new InvertControls()); //assuming just the movement keys are inverted
 		rules.Add(new PowerfulRecoil());
 		rules.Add(new ChangeSkin());
-        //// TODO: Add all rules to list
+		rules.Add(new Dark());
+		rules.Add(new ExtraLife());
+        // TODO: Add all rules to list
 		
 		activeRule = new Nothing();
 		activeRule.applyRule();

@@ -80,8 +80,14 @@ public class gameManager : MonoBehaviour
 
 	public void addExtraLife()
 	{
-		player.totalHealthPoints += 1;
-		heartContainers[player.totalHealthPoints].color = new Color(1, 1, 1);
+		if(player.totalHealthPoints < 8) {
+			player.totalHealthPoints += 1;
+		}
+		
+		player.heal(1);
+		for(int i = 0; i < player.getCurrentHealth(); i++) {
+			heartContainers[i].color = new Color(1,1,1);
+		}
 	}
 	
 	public void BreakCombo(){combo = 0;}
