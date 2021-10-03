@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1239943137819773961}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Player
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   rateOfFire: 0.1
   recoil: 100
   rbplayer: {fileID: 0}
-  camera: {fileID: 0}
+  gameCamera: {fileID: 0}
 --- !u!1 &8649793854725079986
 GameObject:
   m_ObjectHideFlags: 0

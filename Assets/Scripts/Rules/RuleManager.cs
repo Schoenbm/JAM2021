@@ -21,7 +21,8 @@ public class RuleManager : MonoBehaviour
 	{
 		//rules.Add(new Gravity());
 		//rules.Add(new InfiniteJumps());
-		rules.Add(new CantJump());
+		//rules.Add(new CantJump());
+		rules.Add(new ConstantShooting());
         // TODO: Add all rules to list
 		
         ruleDuration = Random.Range(minSeconds, maxSeconds);

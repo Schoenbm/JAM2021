@@ -24,10 +24,15 @@ public class gameManager : MonoBehaviour
 	public List<Image> heartContainers;
 	public TextMeshProUGUI Score;
 	public TextMeshProUGUI Combo;
-
-	void Start()
+	
+	// Awake is called when the script instance is being loaded.
+	protected void Awake()
 	{
 		player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
+	}
+	
+	void Start()
+	{
 		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		score = 0;
 		combo = 0;
