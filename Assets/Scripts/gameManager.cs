@@ -77,6 +77,26 @@ public class gameManager : MonoBehaviour
 		heartContainers[player.totalHealthPoints].color = new Color(1, 1, 1);
 	}
 
+	// Call after subtracting life
+	public void playerHit()
+	{
+		this.combo = 0;
+		this.killingSpree = 0;
+
+		Combo.text = "";
+
+		for(int i = player.getCurrentHealth(); i < player.getMaxHealth(); i++) {
+			heartContainers[i].color = new Color(0, 0, 0);
+		}
+	}
+
+	// Call after adding life
+	public void playerHealed() {
+		for(int i = 0; i < player.getCurrentHealth(); i++) {
+			heartContainers[i].color = new Color(1,1,1);
+		}
+	}
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -88,32 +108,6 @@ public class gameManager : MonoBehaviour
 				Resume();
 			else
 				Pause();
-		}
-		
-		
-		
-		if (currentLife < player.getCurrentHealth())
-		{
-			//Debug.Log("Player healed seen");
-			for (int i = currentLife; i < player.getCurrentHealth() && i < heartContainers.Count; i++)
-			{
-				heartContainers[i].color = new Color(1, 1, 1);
-				currentLife = player.getCurrentHealth();
-			}
-		}
-		else if (currentLife > player.getCurrentHealth())
-		{
-			this.combo = 0;
-
-			Combo.text = "";
-
-			this.killingSpree = 0;
-			//Debug.Log("Player hurt seen :" + combo);
-			for (int i = player.getCurrentHealth(); i < currentLife && i < heartContainers.Count; i++)
-			{
-				heartContainers[i].color = new Color(0, 0, 0);
-				currentLife = player.getCurrentHealth();
-			}
 		}
 
 	}
