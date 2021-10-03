@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -59,7 +60,7 @@ public class gameManager : MonoBehaviour
 		if (chaosBarFill.fillAmount < 1)
 			chaosBarFill.fillAmount += chaosFillSpeed * Time.deltaTime *bomb.getPressureLevel();
 		
-		if(Input.GetAxis("Pause")){
+		if(Input.GetAxis("Pause") != 0 || Input.GetKeyDown(KeyCode.Escape)) {
 			if( gamePaused)
 				Resume();
 			else
@@ -107,8 +108,10 @@ public class gameManager : MonoBehaviour
 		gamePaused = false;
 	}
 	public void Menu(){
-		
+		SceneManager.LoadScene(0);
 	}
-	public void Quit(){}
+	public void Quit(){
+		Application.Quit();
+	}
 	public void GameOver(){}
 }
