@@ -66,6 +66,7 @@ public class RuleManager : MonoBehaviour
 		rules.Add(new PowerfulRecoil());
 		rules.Add(new ChangeSkin());
 		rules.Add(new Dark());
+		rules.Add(new ExtraLife());
         // TODO: Add all rules to list
 		
 		activeRule = new Nothing();
