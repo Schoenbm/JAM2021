@@ -12,6 +12,7 @@ public class gameManager : MonoBehaviour
 	int combo;
 	int killingSpree;
 	bool gamePaused;
+	public int DamageModifier {get; set;}
 	
 	int currentLife;
 	private Player player;
@@ -26,21 +27,23 @@ public class gameManager : MonoBehaviour
 	public List<Image> heartContainers;
 	public TextMeshProUGUI Score;
 	public TextMeshProUGUI Combo;
+	public TextMeshProUGUI ScoreGameOver;
 	public Canvas PauseMenu;
+	public Canvas GameOverCanvas;
 	
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
+		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
+		DamageModifier = 1;
 	}
-	
-	
 	
 	void Start()
 	{
 		PauseMenu.enabled= false;
+		GameOverCanvas.enabled = false;
 		gamePaused = false;
-		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		score = 0;
 		combo = 0;
 		currentLife = player.totalHealthPoints;
@@ -76,7 +79,9 @@ public class gameManager : MonoBehaviour
 		player.totalHealthPoints += 1;
 		heartContainers[player.totalHealthPoints].color = new Color(1, 1, 1);
 	}
-
+	
+	public void BreakCombo(){combo = 0;}
+	
 	// Call after subtracting life
 	public void playerHit()
 	{
@@ -128,5 +133,16 @@ public class gameManager : MonoBehaviour
 	public void Quit(){
 		Application.Quit();
 	}
-	public void GameOver(){}
+
+	public Player getPlayer(){
+		return this.player;
+	}
+
+	public void GameOver()
+	{
+		Debug.Log("Your score was :" + score);
+		ScoreGameOver.text = "Your score: " + score;
+		Time.timeScale = 0f;
+		GameOverCanvas.enabled = true;
+	}
 }

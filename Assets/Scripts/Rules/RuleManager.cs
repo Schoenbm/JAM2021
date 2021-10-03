@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class RuleManager : MonoBehaviour
 {
 	private List<Rule> rules = new List<Rule>();
-    private Rule activeRule; // The active rule applied
+	public Rule activeRule; // The active rule applied
 
-    private float minSeconds = 5.0f;
-    private float maxSeconds = 15.0f;
+	[SerializeField] private float minSeconds = 5.0f;
+	[SerializeField] private float maxSeconds = 15.0f;
 
     private float ruleDuration = 0.0f; // how long does the current rule last
 	private float timer = 0.0f; // timer counting the rule has lasted
@@ -21,7 +21,9 @@ public class RuleManager : MonoBehaviour
 		gameManager gm = GameObject.Find("GameManager").GetComponent<gameManager>();
 		string previousRule = activeRule?.getName();
 		
-		ruleDuration = Random.Range(minSeconds, maxSeconds);
+		float chaosTimeModifier =(2 - chaosBarFill.GetComponent<Image>().fillAmount);
+		
+		ruleDuration = Random.Range(minSeconds, maxSeconds)* chaosTimeModifier;
 		activeRule = rules[Random.Range(0, rules.Count)];
 		
 		if (activeRule != null && rules.Count > 1)
@@ -38,38 +40,46 @@ public class RuleManager : MonoBehaviour
 		activeRule.applyRule();
 	}
 
+	// Awake is called when the script instance is being loaded.
+	protected void Awake()
+	{
+		chaosBarFill = GameObject.Find("Fill");
+	}
+
     // Start is called before the first frame update
     void Start()
 	{
-		//rules.Add(new Gravity());
-		//rules.Add(new InfiniteJumps());
-		//rules.Add(new CantJump());
-		//rules.Add(new ConstantShooting());
-		//rules.Add(new AlmostTransparent());
-		// BROKEN rules.Add(new AlmostTransparentEnemy());
+		rules.Add(new Nothing());
+		rules.Add(new Gravity());
+		rules.Add(new InfiniteJumps());
+		rules.Add(new CantJump());
+		rules.Add(new ConstantShooting());
+		rules.Add(new DoubleDamage());
+		rules.Add(new AlmostTransparent());
+		//BROKEN rules.Add(new AlmostTransparentEnemy());
 		//rules.Add(new FlipRoom());
+		rules.Add(new InvertControls()); //assuming just the movement keys are inverted
         // TODO: Add all rules to list
 		
-		setNewRule();
+		activeRule = new Nothing();
+		ruleDuration = maxSeconds;
         
-	    chaosBarFill = GameObject.Find("Fill");
+	    
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-	    Debug.Log(ruleDuration);
+	    //Debug.Log(timer + " : " + ruleDuration);
         if (timer >= ruleDuration)
         {
-        	
-        	//float chaosTimeModifier = 1 - chaosBarFill.GetComponent<Image>().fillAmount;
         	
 	        timer = 0.0f;
             activeRule.removeRule(); // remove current rule
 
 	        setNewRule();
-	        Debug.Log(activeRule.getName());
+	        Debug.Log(activeRule.getName());	
         }
     }
    

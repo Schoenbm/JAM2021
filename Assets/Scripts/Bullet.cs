@@ -10,21 +10,17 @@ public class Bullet : MonoBehaviour
 	private Rigidbody2D rb;
 
 	private int secondsToLive = 5;
+	private gameManager gm;
 	
 	void Start(){
 		rb = this.gameObject.GetComponent<Rigidbody2D>();
 		rb.velocity = transform.right * bulletTravelSpeed;
-		AllIn1Shader shader = gameObject.AddComponent(typeof(AllIn1Shader)) as AllIn1Shader;
-		shader.MakeNewMaterial(true,"Allin1Sprite");
+		//AllIn1Shader shader = gameObject.AddComponent(typeof(AllIn1Shader)) as AllIn1Shader;
+		//shader.MakeNewMaterial(true,"Allin1Sprite");
+		gm = FindObjectOfType<gameManager>();
 		
 		Destroy(gameObject, secondsToLive);
 	}
-    // Update is called once per frame
-	void Update()
-	{
-		
-	}
-	
 
 	private void OnTriggerEnter2D(Collider2D collision) 
     {
@@ -32,7 +28,7 @@ public class Bullet : MonoBehaviour
 	    if(!collision.transform.CompareTag(this.gameObject.tag)){
 		    Animal target = collision.GetComponent<Animal>();
 		    if(target != null)
-		    	target.GetHit(damage, this.transform.position, knockback);
+		    	target.GetHit(damage * gm.DamageModifier, this.transform.position, knockback);
 		    Destroy(this.gameObject);
 	    }
     }

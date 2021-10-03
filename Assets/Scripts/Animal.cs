@@ -10,12 +10,13 @@ public abstract class Animal : MonoBehaviour
 	protected bool invulnerable;
 	protected bool canMove;
 	public float invulnerabilityFrame;
-	
+	protected Vector3 vectorZero = new Vector3(0,0,0);
 	public void Awake(){
 		currentHealthPoints = totalHealthPoints;
 	}
 	
 	public void GetHit(int pStr, Vector3 pCoordObjHit, float pKnockback){
+		print("damage taken:" + pStr);
 		if(invulnerable)
 			return;
 		currentHealthPoints -= pStr;
@@ -43,6 +44,9 @@ public abstract class Animal : MonoBehaviour
 		sp.color = new Color(1, 0.6f, 0.6f);
 		yield return new WaitForSeconds(invulnerabilityFrame);
 		invulnerable = false;
+		
+		if(invulnerabilityFrame ==0)
+			yield return new WaitForSeconds(0.1f);
 		sp.color = new Color(1, 1 , 1);
 	}
 	

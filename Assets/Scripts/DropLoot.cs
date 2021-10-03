@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class DropLoot : MonoBehaviour
 {
+	float timer = 5f;
+	
+	void Start(){
+		StartCoroutine(Timer());
+	}
+	
+	IEnumerator Timer()
+	{
+		yield return new WaitForSeconds(timer);
+		Destroy(this.gameObject);
+	}
+	
+	
+	
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		if(collider.CompareTag("Player")){

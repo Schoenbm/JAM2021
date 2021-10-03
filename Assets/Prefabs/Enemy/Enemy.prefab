@@ -216,10 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb9620a85abead409fb36ec558f1e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealthPoints: 3
-  invulnerabilityFrame: 0.2
-  strengh: 1
-  knockback: 1000
+  totalHealthPoints: 7
+  invulnerabilityFrame: 0
+  probabilityDrop: 24
+  strength: 1
+  knockback: 600
   spawner: {fileID: 0}
   DropPrefab: {fileID: 3722102798904244809, guid: 087617a02fce59245b021a461faf1957, type: 3}
   travelSpeed: 2
+  smoothing: 0.145
