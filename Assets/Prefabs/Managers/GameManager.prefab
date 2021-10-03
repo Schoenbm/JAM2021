@@ -108,9 +108,9 @@ MonoBehaviour:
   - {fileID: 99953821038768150}
   Score: {fileID: 6969140456416885333}
   Combo: {fileID: 256960443181743249}
-  ScoreGameOver: {fileID: 0}
+  ScoreGameOver: {fileID: 8042014320376147472}
   PauseMenu: {fileID: 6210366161583372884}
-  GameOverCanvas: {fileID: 0}
+  GameOverCanvas: {fileID: 4721841764499028061}
 --- !u!1001 &1158652350793746479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -536,6 +536,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7946904541448487891, guid: 71545d20d213bcb4c9fbfedcc98168f1, type: 3}
   m_PrefabInstance: {fileID: 3120768234035435926}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &4721841764499028061 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7694514578365882827, guid: 71545d20d213bcb4c9fbfedcc98168f1, type: 3}
+  m_PrefabInstance: {fileID: 3120768234035435926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8042014320376147472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4960094069828007814, guid: 71545d20d213bcb4c9fbfedcc98168f1, type: 3}
+  m_PrefabInstance: {fileID: 3120768234035435926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3185207856232224753
 PrefabInstance:
   m_ObjectHideFlags: 0
