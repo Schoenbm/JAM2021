@@ -10,7 +10,7 @@ public class Cat : Enemy
 	[Range(0,0.5f)] public float smoothing = 0.05f;
 	private void Update()
 	{
-		this.transform.Translate(new Vector2(travelSpeed * direction * Time.deltaTime, 0));
+		this.transform.Translate(new Vector2(travelSpeed * gm.SpeedModifier * direction * Time.deltaTime, 0));
 		
 		float movement = direction * travelSpeed;
 		Vector3 targetVelocity = new Vector2(movement, rb.velocity.y);
