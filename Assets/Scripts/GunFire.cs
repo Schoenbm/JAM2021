@@ -13,7 +13,13 @@ public class GunFire : MonoBehaviour
 	private bool canShoot = true;
 	public Camera gameCamera;
 	private bool faceRight = true;
-
+	private bool constantShooting = false;
+	
+	public void setConstantShooting(bool constantShooting)
+	{
+		this.constantShooting = constantShooting;
+	}
+	
 	void Start(){
 		faceRight = true;
 		this.gameObject.GetComponentInParent<Rigidbody2D>();
@@ -47,7 +53,7 @@ public class GunFire : MonoBehaviour
 		transform.eulerAngles = new Vector3 (0, 0, angle);
 		
     	
-        if (Input.GetButton("Fire1") && canShoot) 
+		if ((Input.GetButton("Fire1") || constantShooting) && canShoot) 
         {
 	        StartCoroutine(Shoot());
 	        rbplayer.AddForce(-transform.right * recoil);

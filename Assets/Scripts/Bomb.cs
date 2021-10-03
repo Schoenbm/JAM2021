@@ -14,8 +14,10 @@ public class Bomb : MonoBehaviour
 	int thresholdMedium = 15; // level 2
 	int thresholdHigh = 25; // level 3
 	
+	Vector3 spawnpoint;
 	BoxCollider2D boxCollider;
 	
+	public void setSpawnPoint(Vector3 spawn){spawnpoint = spawn;}
 	
     // Start is called before the first frame update
     void Start()
@@ -56,9 +58,18 @@ public class Bomb : MonoBehaviour
 			++pressure;
 			col.gameObject.GetComponent<Enemy>().Fall();
 		}
+		if(col.tag == "Player"){
+			Player p = col.GetComponent<Player>();
+			p.GetHit(1, Vector3.zero, 0);
+			p.transform.position = spawnpoint;
+		}
 	}
 	
 	public void reducePressure() {
 		pressure -= 0.5f;
+	}
+	
+	public int getPressureLevel(){
+		return this.pressureLevel + 1;
 	}
 }

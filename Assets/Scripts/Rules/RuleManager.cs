@@ -16,18 +16,39 @@ public class RuleManager : MonoBehaviour
     
 	private GameObject chaosBarFill;
 
+	private void setNewRule()
+	{
+		gameManager gm = GameObject.Find("GameManager").GetComponent<gameManager>();
+		string previousRule = activeRule?.getName();
+		
+		ruleDuration = Random.Range(minSeconds, maxSeconds);
+		activeRule = rules[Random.Range(0, rules.Count)];
+		
+		if (activeRule != null)
+		{
+			while (activeRule.getName() == previousRule)
+			{
+				activeRule = rules[Random.Range(0, rules.Count)];
+			}
+		}
+		
+		gm.setRuleName(this.activeRuleName());
+		gm.setDescName(this.activeRuleDescription());
+
+		activeRule.applyRule();
+	}
+
     // Start is called before the first frame update
     void Start()
 	{
 		//rules.Add(new Gravity());
 		//rules.Add(new InfiniteJumps());
-		rules.Add(new CantJump());
+		//rules.Add(new CantJump());
+		//rules.Add(new ConstantShooting());
+		rules.Add(new FlipRoom());
         // TODO: Add all rules to list
 		
-        ruleDuration = Random.Range(minSeconds, maxSeconds);
-        activeRule = rules[Random.Range(0, rules.Count-1)];
-
-	    activeRule.applyRule();
+		setNewRule();
         
 	    chaosBarFill = GameObject.Find("Fill");
     }
@@ -35,22 +56,18 @@ public class RuleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         timer += Time.deltaTime;
-
+	    Debug.Log(ruleDuration);
         if (timer >= ruleDuration)
         {
         	
-        	float chaosTimeModifier = 1 - chaosBarFill.GetComponent<Image>().fillAmount;
+        	//float chaosTimeModifier = 1 - chaosBarFill.GetComponent<Image>().fillAmount;
         	
-            timer = 0.0f;
-	        Debug.Log(activeRule.getName());
+	        timer = 0.0f;
             activeRule.removeRule(); // remove current rule
 
-	        ruleDuration = Random.Range(minSeconds, maxSeconds) * chaosTimeModifier; // set new duration
-            activeRule = rules[Random.Range(0, rules.Count-1)]; // choose new active rule
-
-            activeRule.applyRule(); // start rule
+	        setNewRule();
+	        Debug.Log(activeRule.getName());
         }
     }
    

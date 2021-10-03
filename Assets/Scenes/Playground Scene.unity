@@ -1232,6 +1232,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1868991445}
+    - target: {fileID: 4953246158617637712, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
+      propertyPath: chaosFillSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5844693469584360753, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1282,6 +1286,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
+--- !u!1 &1683096893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6303415747626716191, guid: 9a0d7faadf569ce49adfc99f7434b7d8, type: 3}
+  m_PrefabInstance: {fileID: 1683096892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1683096894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683096893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7119e5c192f8ca4a81b8c3a49018150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1826144459
 GameObject:
   m_ObjectHideFlags: 0

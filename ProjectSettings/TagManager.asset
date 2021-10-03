@@ -9,6 +9,9 @@ TagManager:
   - Wall
   - Platform
   - Level
+  - Bomb
+  - Gun
+  - Room
   layers:
   - Default
   - TransparentFX

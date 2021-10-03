@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision) 
     {
-	    print("Collision with: " + collision.transform.name);
+	    //print("Collision with: " + collision.transform.name);
 	    if(!collision.transform.CompareTag(this.gameObject.tag)){
 		    Animal target = collision.GetComponent<Animal>();
 		    if(target != null)
