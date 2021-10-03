@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 4202398283583751319, guid: 0ef4807996d257845900c35757b52936, type: 3}
   spawnPoint: {fileID: 0}
-  camera: {fileID: 0}
+  audioManager: {fileID: 6349177760488442740}
   chaosBar: {fileID: 1158652351358386689}
   chaosFillSpeed: 0.01
   bomb: {fileID: 0}
@@ -175,6 +175,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6883076287568851990, guid: 169e529cf0285c34c97bac94363a6361, type: 3}
   m_PrefabInstance: {fileID: 547564362656513891}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6349177760488442740 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6883076287568851991, guid: 169e529cf0285c34c97bac94363a6361, type: 3}
+  m_PrefabInstance: {fileID: 547564362656513891}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43c0e51f79af014e8b066effb657953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1158652350793746479
 PrefabInstance:
   m_ObjectHideFlags: 0
