@@ -174,7 +174,7 @@ public class gameManager : MonoBehaviour
 		GameOverCanvas.enabled = true;
 	}
 	
-	public void getChaos(){
-		return this.chaosBarFill;
+	public float getChaos(){
+		return chaosBarFill.fillAmount;
 	}
 }

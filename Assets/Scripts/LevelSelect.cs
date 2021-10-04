@@ -18,7 +18,7 @@ public class LevelSelect : MonoBehaviour
 	}
 	
 	public void SelectRandomLevel() {
-		int levelIndex = Random.RandomRange(0, levels.Length - 1);
+		int levelIndex = Random.Range(0, levels.Length - 1);
 		SceneManager.LoadScene(levels[levelIndex]);
 	}
 	
