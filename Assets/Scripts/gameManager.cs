@@ -26,6 +26,7 @@ public class gameManager : MonoBehaviour
 	public float chaosFillSpeed = 0.01f;
 	public Bomb bomb;
 	
+	public GameObject RuleManagerPrefab;
 	public List<Image> heartContainers;
 	public TextMeshProUGUI Score;
 	public TextMeshProUGUI Combo;
@@ -45,6 +46,7 @@ public class gameManager : MonoBehaviour
 		audioManager.Stop();
 		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
+		Instantiate(RuleManagerPrefab);
 		DamageModifier = 1;
 		SpeedModifier = 1f;
 	}
