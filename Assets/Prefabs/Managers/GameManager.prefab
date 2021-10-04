@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7119e5c192f8ca4a81b8c3a49018150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSeconds: 5
-  maxSeconds: 15
+  minSeconds: 2
+  maxSeconds: 8
 --- !u!1 &6303415747626716191
 GameObject:
   m_ObjectHideFlags: 0
