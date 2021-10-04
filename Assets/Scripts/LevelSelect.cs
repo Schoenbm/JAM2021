@@ -8,16 +8,16 @@ public class LevelSelect : MonoBehaviour
 
 	public static string[] levels = {"Level1", "Level2", "Level3"};
 	
-	public void selectLevel(string sceneName)
+	public void SelectLevel(string sceneName)
 	{
 		SceneManager.LoadScene(sceneName);
 	}
 	
-	public void backToMenu() {
+	public void BackToMenu() {
 		SceneManager.LoadScene("Menu");
 	}
 	
-	public void selectRandomLevel() {
+	public void SelectRandomLevel() {
 		int levelIndex = Random.RandomRange(0, levels.Length - 1);
 		SceneManager.LoadScene(levels[levelIndex]);
 	}

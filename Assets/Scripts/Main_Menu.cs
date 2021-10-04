@@ -10,8 +10,8 @@ public class Main_Menu : MonoBehaviour
 		Application.Quit();
 	}
 	
-	public void Play(string name)
+	public void Play()
 	{
-		SceneManager.LoadScene(name);
+		SceneManager.LoadScene("Level Select");
 	}
 }
