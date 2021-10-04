@@ -21,7 +21,7 @@ public class RuleManager : MonoBehaviour
 		gameManager gm = GameObject.Find("GameManager").GetComponent<gameManager>();
 		string previousRule = activeRule?.getName();
 		
-		float chaosTimeModifier =(2 - chaosBarFill.GetComponent<Image>().fillAmount);
+		float chaosTimeModifier =(3 - 2 * chaosBarFill.GetComponent<Image>().fillAmount);
 		
 		ruleDuration = Random.Range(minSeconds, maxSeconds)* chaosTimeModifier;
 		activeRule = rules[Random.Range(0, rules.Count)];

@@ -37,6 +37,12 @@ public class gameManager : MonoBehaviour
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
+		Time.timeScale = 1f;
+		audioManager = FindObjectOfType<AudioManager>();
+		if(audioManager == null){
+			audioManager = new AudioManager();
+		}
+		audioManager.Stop();
 		chaosBarFill = chaosBar.transform.GetChild(0).GetComponent<Image>();
 		player = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Player>();
 		DamageModifier = 1;
