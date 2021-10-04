@@ -5,7 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Napo Scene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Final Scenes/Menu.unity
+    guid: bbc71bbec605da5408a65ad4533da659
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Level Select.unity
+    guid: 4b5c19a2b49e53347bf38b42e0e85f9a
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Level1.unity
+    guid: 031c2c634f746a0498db9e30ae52c0be
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Level2.unity
+    guid: 985bec75501028a46b208dab523b7f15
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Level3.unity
+    guid: 6f366bae7fb48de4e94798e8fa7c7a9b
   m_configObjects: {}
