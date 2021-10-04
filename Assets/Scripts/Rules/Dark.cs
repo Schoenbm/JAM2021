@@ -12,10 +12,10 @@ public class Dark : Rule
 	}
 	
 	public override void applyRule(){
-		dark.active = true;
+		dark.SetActive(true);
 	}
 
 	public override void removeRule(){
-		dark.active = false;
+		dark.SetActive(false);
 	}
 }
