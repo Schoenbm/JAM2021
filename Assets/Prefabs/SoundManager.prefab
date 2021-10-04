@@ -62,12 +62,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: New_Rule
-    clip: {fileID: 8300000, guid: 99ba9befab3fa3c4e813e16ea547ff20, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: Pause_In
     clip: {fileID: 8300000, guid: ede676d1b06c23e4fae6c3d1a8be3cbf, type: 3}
     volume: 1
@@ -127,4 +121,10 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: New_Rule
+    clip: {fileID: 8300000, guid: 99ba9befab3fa3c4e813e16ea547ff20, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
