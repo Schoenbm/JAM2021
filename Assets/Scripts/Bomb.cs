@@ -75,7 +75,7 @@ public class Bomb : MonoBehaviour
 	}
 	
 	public void reducePressure() {
-		pressure -= 0.5f;
+		//pressure -= 0.5f;
 	}
 	
 	public float getPressureLevel(){

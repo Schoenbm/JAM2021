@@ -16,7 +16,7 @@ public class SpawnEnemies : MonoBehaviour
     {
 	    GameObject enemy; 
 	    canSpawn = false;
-	    yield return new WaitForSeconds(Random.Range(MinTimeBetweenSpawns, MaxTimeBetweenSpawns));
+	    yield return new WaitForSeconds(Random.Range(MinTimeBetweenSpawns * (2 - gm.getChaos()), MaxTimeBetweenSpawns * (2 - gm.getChaos() ) ));
 	    enemy = Instantiate(enemylist[Random.Range(0, enemylist.Count)], this.transform.position, new Quaternion()) as GameObject;
 	    enemy.GetComponent<Enemy>().spawner = this;
 	    enemy.GetComponent<Enemy>().setGm(gm);

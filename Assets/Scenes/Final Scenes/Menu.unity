@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2364888856019192197, guid: d790370cbb506024fb8002c3a87c1a52, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: ae08d01488555f74ab24c93a91436307, type: 2}
     - target: {fileID: 2364888857461636896, guid: d790370cbb506024fb8002c3a87c1a52, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -555,6 +559,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play
       objectReference: {fileID: 0}
+    - target: {fileID: 7288034969817999221, guid: e7724888e4a9c5249848c09f0416be56, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: ae08d01488555f74ab24c93a91436307, type: 2}
     - target: {fileID: 7761206857806808439, guid: e7724888e4a9c5249848c09f0416be56, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
