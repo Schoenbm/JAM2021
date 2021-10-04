@@ -173,4 +173,8 @@ public class gameManager : MonoBehaviour
 		Time.timeScale = 0f;
 		GameOverCanvas.enabled = true;
 	}
+	
+	public void getChaos(){
+		return this.chaosBarFill;
+	}
 }
