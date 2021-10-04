@@ -1249,7 +1249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7790377230151954964, guid: 4ff33284181a9e242b3509ab340d05d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.86
+      value: -11.05
       objectReference: {fileID: 0}
     - target: {fileID: 7790377230151954964, guid: 4ff33284181a9e242b3509ab340d05d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2112,7 +2112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2993398305554836296, guid: a74632e0305a6aa46b05da08ec6fc629, type: 3}
       propertyPath: MaxTimeBetweenSpawns
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2993398305554836296, guid: a74632e0305a6aa46b05da08ec6fc629, type: 3}
       propertyPath: MinTimeBetweenSpawns
