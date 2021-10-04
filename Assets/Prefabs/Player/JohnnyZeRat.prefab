@@ -188,10 +188,10 @@ MonoBehaviour:
   smoothing: 0.036
   speed: 8
   isFacingRight: 1
-  jumpForce: 15
+  jumpForce: 17
   fallMultiplier: 2.5
   lowJumpMultiplier: 5
-  dashForce: 400
+  dashForce: 800
   dashInvulnerabilityFrame: 0.3
   spriteChange:
   - {fileID: 21300000, guid: 7f04b8f84b40c4f4696ac73c386e8695, type: 3}
