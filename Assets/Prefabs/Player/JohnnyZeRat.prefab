@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b53c953ffd819c40a721bc4481b55a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealthPoints: 3
+  totalHealthPoints: 4
   animalMaterial: {fileID: 2100000, guid: 46d0acd28a6a6354ca2a9af5e8b63c6f, type: 2}
   invulnerabilityFrame: 1.5
   smoothing: 0.036
