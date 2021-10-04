@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class LevelSelect : MonoBehaviour
 {
-
+	public AudioManager audioManager;
 	public static string[] levels = {"Level1", "Level2", "Level3"};
+	
+	void Start()
+	{
+		audioManager.Play("Menu_Theme");
+	}
 	
 	public void SelectLevel(string sceneName)
 	{

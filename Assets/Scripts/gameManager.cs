@@ -50,6 +50,7 @@ public class gameManager : MonoBehaviour
 		gamePaused = false;
 		score = 0;
 		combo = 0;
+		audioManager.Play("Theme");
 		
 		currentLife = player.totalHealthPoints;
 		bomb.setSpawnPoint(spawnPoint.transform.position); // set respawn point in case of player falling down in bomb
