@@ -177,4 +177,8 @@ public class gameManager : MonoBehaviour
 	public float getChaos(){
 		return chaosBarFill.fillAmount;
 	}
+	
+	public void playPitfall(){
+		audioManager.Play("Pitfall");
+	}
 }

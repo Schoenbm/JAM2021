@@ -64,6 +64,7 @@ public class Bomb : MonoBehaviour
 		if(col.tag == "Enemy") {
 			++pressure;
 			gm.increaseChaos();
+			gm.playPitfall();
 			col.gameObject.GetComponent<Enemy>().Fall();
 		}
 		if(col.tag == "Player"){

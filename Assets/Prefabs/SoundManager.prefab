@@ -116,3 +116,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Pitfall
+    clip: {fileID: 8300000, guid: ade76ccfc4fda46499f937d4fbc426f3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
