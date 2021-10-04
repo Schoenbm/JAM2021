@@ -9,6 +9,10 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
 	void Awake()
 	{
+		if(FindObjectOfType<AudioManager>() != this){
+			Destroy(this.gameObject);
+		}
+		DontDestroyOnLoad(this.gameObject);
 		foreach(Sound s in sounds){
 			s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -29,5 +33,12 @@ public class AudioManager : MonoBehaviour
 			return;
 		}
 		s.source.Play();
+	}
+	
+	public void Stop()
+	{
+		foreach(Sound s in sounds){
+			s.source.Stop();
+		}
 	}
 }
