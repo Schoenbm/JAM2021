@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_text: 'Protect the pit or chaos will reign in Synthwave City !
 
     But take
-    care, rules are not your friends ...'
+    care, rules are not always your friends ...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 967e58e98a2193e4c93f3819f43854cc, type: 2}
   m_sharedMaterial: {fileID: -4042864033419345198, guid: 967e58e98a2193e4c93f3819f43854cc, type: 2}
